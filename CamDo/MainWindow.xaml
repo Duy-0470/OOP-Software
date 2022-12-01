@@ -17,7 +17,9 @@
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
-                    ImageSource="Icon/Menu.png"/>
+                    ImageSource="Icon/Menu.png"
+                    Stretch="Uniform"
+                    />
 
         <!--Text font style-->
 
@@ -29,7 +31,7 @@
             <Setter Property="HorizontalAlignment"
                     Value="Left"/>
             <Setter Property="Foreground"
-                    Value="White"/>
+                    Value="Black"/>
             <Setter Property="FontSize"
                     Value="20"/>
         </Style>
@@ -92,18 +94,20 @@
 
     <Grid>
 
-        <Grid Background="Black" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
+        <Grid Background="Black" >
 
             <!--// background Image-->
 
-            <!--<Grid x:Name="BG">
+            <Grid x:Name="BG" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
                 <Grid.Background>
-                    <ImageBrush x:Name="img_bg"
-                                 ImageSource=""
-                                />
+
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#f5c1c1" Offset="0.2"/>
+                        <GradientStop Color="#e7cfcf" Offset="1"/>
+                    </LinearGradientBrush>
                 </Grid.Background> 
                 
-            </Grid>-->
+            </Grid>
 
 
 
@@ -112,7 +116,7 @@
             <Grid x:Name="nav_pnl"
                   HorizontalAlignment="Left"
                   Width="65"
-                  Background="DarkViolet">
+                  Background="White">
 
                 <StackPanel x:Name="st_pnl">
 
@@ -124,7 +128,7 @@
                                    Grid.Column="0"
                                    Margin="73,-20,0,0"
                                    Text="M E N U"
-                                   Foreground="White"
+                                   Foreground="Black"
                                    FontSize="22"
                                    Background="Transparent"
                                    HorizontalAlignment="Left"
@@ -178,6 +182,7 @@
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
+                                
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
                                     <BeginStoryboard>
                                         <Storyboard x:Name="HideStackPanel">
@@ -213,8 +218,10 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="Icon/Home.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
                                 <TextBlock Text="Home"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
@@ -239,8 +246,10 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="Icon/Customer.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
                                 <TextBlock Text="Customer"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
@@ -265,8 +274,10 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="Icon/Mortage.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
                                 <TextBlock Text="Pawn"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
@@ -291,8 +302,10 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="Icon/Find.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
                                 <TextBlock Text="Search"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
@@ -317,8 +330,10 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="Icon/Remind.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
                                 <TextBlock Text="Remind"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
@@ -343,8 +358,10 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="Icon/Manage.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
                                 <TextBlock Text="Management"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>

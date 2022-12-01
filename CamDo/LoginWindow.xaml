@@ -26,6 +26,16 @@
     </i:Interaction.Triggers>
 
     <Grid>
+
+        <Grid x:Name="BG">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#f5c1c1" Offset="0.2"/>
+                    <GradientStop Color="#e7cfcf" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
         <TextBlock Margin="150 -190 -190 50" Width="400" Height="30" FontSize="20" TextAlignment="Center" >Rose</TextBlock>
         <materialDesign:Card Height="250" Width="400" Margin="300 0 30 -70" HorizontalAlignment="Right">
             <Grid>
