@@ -48,15 +48,15 @@ namespace CamDo
             }
         }
 
-        private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)
-        {
-            //img.bg.opacity = 1;
-        }
+        //private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)
+        //{
+        //    //img.bg.opacity = 1;
+        //}
 
-        private void Tg_Btn_Checked(object sender, RoutedEventArgs e)
-        {
-            //imh.bg.opcaity - 0.3;
-        }
+        //private void Tg_Btn_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    //imh.bg.opcaity - 0.3;
+        //}
 
         private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
