@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\School\OOP\OOP-Software\CamDo\App.xaml
-3338219967
+8524064336
 
-8-1346240356
+15220575954
 17-1740628592
-LoginWindow.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;
+CustomerWindow.xaml;FindWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ManagementWindow.xaml;PawnWindow.xaml;RemindWindow.xaml;ResourceXAML\MainResource.xaml;
 
 False
 

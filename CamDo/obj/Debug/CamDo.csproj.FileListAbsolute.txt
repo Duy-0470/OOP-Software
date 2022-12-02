@@ -58,3 +58,13 @@ D:\School\OOP\OOP-Software\CamDo\obj\Debug\CamDo.csproj.CoreCompileInputs.cache
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\CamDo.csproj.CopyComplete
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\CamDo.exe
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\CamDo.pdb
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\CustomerWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\FindWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\ManagementWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\PawnWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\RemindWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\CustomerWindow.baml
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\FindWindow.baml
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\ManagementWindow.baml
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\PawnWindow.baml
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\RemindWindow.baml
