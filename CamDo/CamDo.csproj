@@ -173,7 +173,7 @@
     <Resource Include="Icon\Menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\Report.png" />
+    <Resource Include="Icon\Expense.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" />
