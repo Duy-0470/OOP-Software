@@ -36,6 +36,7 @@ namespace CamDo
                 tt_remind.Visibility = Visibility.Collapsed;
                 tt_search.Visibility = Visibility.Collapsed;
                 tt_manage.Visibility = Visibility.Collapsed;
+                tt_report.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -45,6 +46,7 @@ namespace CamDo
                 tt_remind.Visibility = Visibility.Visible;
                 tt_search.Visibility = Visibility.Visible;
                 tt_manage.Visibility = Visibility.Visible;
+                tt_report.Visibility = Visibility.Visible;
             }
         }
 
