@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:CamDo"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -15,6 +16,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
+        
         Title="MainWindow" Height="600" Width="800">
 
     <Window.Resources>
@@ -24,6 +26,8 @@
                     />
 
         <!--Text font style-->
+
+
 
         <Style x:Key="font_style" TargetType="TextBlock">
             <Setter Property="FontFamily"
@@ -96,7 +100,7 @@
 
     <Grid>
 
-        <Grid Background="Black" >
+        <Grid>
 
             <!--// background Image-->
 
@@ -107,11 +111,13 @@
                         <GradientStop Color="#e7cfcf" Offset="1"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-
             </Grid>
-            
+
             <!--Navigation Panel-->
 
+            <Grid Width="720" HorizontalAlignment="Right" >
+                <UserControl Content="{Binding SelectedViewModel}" Background="Transparent" />
+            </Grid>
             <Grid x:Name="nav_pnl"
                   HorizontalAlignment="Left"
                   Width="65"
@@ -160,8 +166,8 @@
 
                             <ToggleButton.Background>
 
-                                
-                            <!--De anh-->
+
+                                <!--De anh-->
                                 <ImageBrush ImageSource="Icon/Menu.png"
                                             Stretch="None"/>
 
@@ -176,12 +182,11 @@
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
                                                 From="65" To="230"
-                                                Duration="0:0:0.2">
-                                            </DoubleAnimation>
+                                                Duration="0:0:0.2"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
-                                
+
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
                                     <BeginStoryboard>
                                         <Storyboard x:Name="HideStackPanel">
@@ -190,8 +195,7 @@
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
                                                 From="230" To="65"
-                                                Duration="0:0:0.3">
-                                            </DoubleAnimation>
+                                                Duration="0:0:0.3"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
@@ -208,207 +212,17 @@
                               BorderBrush="Transparent"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
-                        <!--HOME-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Home.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Home"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_home"
-                                         Content="Home"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--CUSTOMER-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Customer.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Customer"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_customer"
-                                         Content="Customer"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--PAWN-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Mortage.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Pawn"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_pawn"
-                                         Content="Pawn"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--SEARCH-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Find.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Search"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_search"
-                                         Content="Search"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--REMIND-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Remind.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Remind"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_remind"
-                                         Content="Remind"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--Expense-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Expense.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Expense"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_expense"
-                                         Content="Expense"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-
-                        <!--Manangement-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Manage.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Management"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_manage"
-                                         Content="Management"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectViewCommand}"
+                                                       CommandParameter="{Binding SelectedItem, ElementName=LV}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
 
                         <!--listview item style template-->
 
                         <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
+                            <Style TargetType="{x:Type ListViewItem}">
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -452,6 +266,204 @@
 
                         </ListView.ItemContainerStyle>
 
+                        <!--HOME-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      Tag="Home">
+
+                            <!--ToolTip-->
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_home"
+                                         Content="Home"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Image Source="Icon/Home.png"
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
+                                <TextBlock Text="Home"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--PAWN-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      Tag="Pawn">
+
+                            <!--ToolTip-->
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_pawn"
+                                         Content="Pawn"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Image Source="Icon/Mortage.png"
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
+                                <TextBlock Text="Pawn"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--CUSTOMER-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      Tag="Customer">
+
+                            <!--ToolTip-->
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_customer"
+                                         Content="Customer"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Image Source="Icon/Customer.png"
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
+                                <TextBlock Text="Customer"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--SEARCH-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      Tag="Search">
+
+                            <!--ToolTip-->
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_search"
+                                         Content="Search"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Image Source="Icon/Find.png"
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
+                                <TextBlock Text="Search"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--REMIND-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      Tag="Remind">
+
+                            <!--ToolTip-->
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_remind"
+                                         Content="Remind"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Image Source="Icon/Remind.png"
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
+                                <TextBlock Text="Remind"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--Expense-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      Tag="Expense">
+
+                            <!--ToolTip-->
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_expense"
+                                         Content="Expense"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Image Source="Icon/Expense.png"
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
+                                <TextBlock Text="Expense"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--Manangement-->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      Tag="Management">
+
+                            <!--ToolTip-->
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_manage"
+                                         Content="Management"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Image Source="Icon/Manage.png"
+                                       Stretch="Uniform"
+                                       Margin="12,0,0,0"
+                                       Height="30"
+                                       Width="30"/>
+                                <TextBlock Text="Management"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                        </ListViewItem>
+                        
+                        
+
                     </ListView>
 
                 </StackPanel>
@@ -459,6 +471,8 @@
             </Grid>
 
         </Grid>
+
+
 
     </Grid>
 </Window>

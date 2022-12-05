@@ -1,10 +1,13 @@
 ﻿
 FD:\School\OOP\OOP-Software\CamDo\App.xaml;;
-FD:\School\OOP\OOP-Software\CamDo\CustomerWindow.xaml;;
-FD:\School\OOP\OOP-Software\CamDo\FindWindow.xaml;;
 FD:\School\OOP\OOP-Software\CamDo\LoginWindow.xaml;;
 FD:\School\OOP\OOP-Software\CamDo\MainWindow.xaml;;
-FD:\School\OOP\OOP-Software\CamDo\ManagementWindow.xaml;;
-FD:\School\OOP\OOP-Software\CamDo\PawnWindow.xaml;;
-FD:\School\OOP\OOP-Software\CamDo\RemindWindow.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\ResourceXAML\SwitchViewUC.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\UC\UCView\CustomerWindow.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\UC\UCView\ExpenseWindow.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\UC\UCView\HomeWindow.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\UC\UCView\ManagementWindow.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\UC\UCView\PawnWindow.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\UC\UCView\RemindWindow.xaml;;
+FD:\School\OOP\OOP-Software\CamDo\UC\UCView\SearchWindow.xaml;;
 
