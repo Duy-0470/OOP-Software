@@ -1,4 +1,5 @@
-﻿using CamDo.UC.SwitchViewClass;
+﻿using CamDo.Model;
+using CamDo.UC.SwitchViewClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +9,28 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Configuration;
 
 namespace CamDo.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        public static TAIKHOAN User;
+
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
-
+        private Visibility updateVisibility;
+        public Visibility UpdateVisibility
+        {
+            get { return updateVisibility; }
+            set
+            {
+                updateVisibility = value;
+                OnPropertyChanged();
+            }
+        }
         public ICommand SelectViewCommand { get; set; }
-        private BaseViewModel _selectedViewModel;  // Bien cuc bo
+        private BaseViewModel _selectedViewModel = new SwitchViewHome();  // Bien cuc bo // De SwitchViewHome de mo len no qua UC Home
         public BaseViewModel SelectedViewModel   // Bien de chua nhung SwitchView Class
         {
             get
@@ -30,32 +43,46 @@ namespace CamDo.ViewModel
                 _selectedViewModel = value;
                 OnPropertyChanged(nameof(SelectedViewModel));
             }
+
         }
        
 
         public MainViewModel()
         {
-            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                Isloaded = true;
-                if (p == null)
-                    return;
-                p.Hide();
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
-
-                if (loginWindow.DataContext == null)
-                    return;
-                var loginVM = loginWindow.DataContext as LoginViewModel;
-
-                if (loginVM.IsLogin)
+                if (User.MaVaiTro == 0)
                 {
-                    p.Show();
+                    updateVisibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    p.Close();
+                    updateVisibility = Visibility.Visible;
                 }
+
+                #region
+                //Isloaded = true;
+                //if (p == null)
+                //    return;
+                //p.Hide();
+                //LoginWindow loginWindow = new LoginWindow();
+                //loginWindow.ShowDialog();
+
+                //if (loginWindow.DataContext == null)
+                //    return;
+                //var loginVM = loginWindow.DataContext as LoginViewModel;
+
+                //if (loginVM.IsLogin)
+                //{
+                //    p.Show();
+                //}
+                //else
+                //{
+                //    p.Close();
+                //}
+
+                //MessageBox.Show(User.MaVaiTro.ToString());
+                #endregion
             });
 
             SelectViewCommand = new RelayCommand<ListViewItem>((p) => { return true; }, (p) => { SelectView(p); });

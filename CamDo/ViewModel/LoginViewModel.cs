@@ -45,20 +45,37 @@ namespace CamDo.ViewModel
             if (p == null)
                 return;
 
-            var accCount = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == Username && x.MatKhau == Password).Count();
-
-            if (accCount > 0)
+            TAIKHOAN user = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == Username && x.MatKhau == Password).FirstOrDefault();
+            if (user != null)
             {
-                IsLogin = true;
-
+                MainViewModel.User = user;
+                MainWindow mainWindow = new MainWindow();
+                Application.Current.MainWindow = mainWindow;
+                Application.Current.MainWindow.Show();
                 p.Close();
             }
             else
             {
-                IsLogin = false;
                 MessageBox.Show("Sai Tai khoan hoac Mat khau");
-
             }
+
+            #region
+            //var accCount = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == Username && x.MatKhau == Password).Count();
+
+            //if (accCount > 0)
+            //{
+            //    IsLogin = true;
+
+            //    p.Close();
+            //}
+            //else
+            //{
+            //    IsLogin = false;
+            //    MessageBox.Show("Sai Tai khoan hoac Mat khau");
+
+            //}
+            #endregion
+
         }
     }
 }

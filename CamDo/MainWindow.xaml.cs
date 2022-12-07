@@ -37,8 +37,8 @@ namespace CamDo
                 tt_pawn.Visibility = Visibility.Collapsed;
                 tt_remind.Visibility = Visibility.Collapsed;
                 tt_search.Visibility = Visibility.Collapsed;
-                tt_manage.Visibility = Visibility.Collapsed;
                 tt_expense.Visibility = Visibility.Collapsed;
+                //tt_manage.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -47,11 +47,17 @@ namespace CamDo
                 tt_pawn.Visibility = Visibility.Visible;
                 tt_remind.Visibility = Visibility.Visible;
                 tt_search.Visibility = Visibility.Visible;
-                tt_manage.Visibility = Visibility.Visible;
                 tt_expense.Visibility = Visibility.Visible;
+                //tt_manage.Visibility = Visibility.Visible;
             }
         }
 
+        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Tg_Btn.IsChecked = false;
+        }
+
+        #region
         //private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)
         //{
         //    //img.bg.opacity = 1;
@@ -61,10 +67,7 @@ namespace CamDo
         //{
         //    //imh.bg.opcaity - 0.3;
         //}
+        #endregion
 
-        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Tg_Btn.IsChecked = false;
-        }
     }
 }

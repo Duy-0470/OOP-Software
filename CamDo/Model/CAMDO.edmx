@@ -102,7 +102,7 @@
           <Key>
             <PropertyRef Name="MaVaiTro" />
           </Key>
-          <Property Name="MaVaiTro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaVaiTro" Type="int" Nullable="false" />
           <Property Name="Ten" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="VATTU">
@@ -259,7 +259,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CAMDOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="CAMDOEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CAMDOEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAOCAODOANHSOes" EntityType="CAMDOModel.BAOCAODOANHSO" />
           <EntitySet Name="BAOCAOTONs" EntityType="CAMDOModel.BAOCAOTON" />
           <EntitySet Name="CT_BCDS" EntityType="CAMDOModel.CT_BCDS" />
@@ -414,7 +414,7 @@
           <Key>
             <PropertyRef Name="MaVaiTro" />
           </Key>
-          <Property Name="MaVaiTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaVaiTro" Type="Int32" Nullable="false" />
           <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TAIKHOANs" Relationship="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809" FromRole="VAITRO" ToRole="TAIKHOAN" />
         </EntityType>
@@ -530,7 +530,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities1">
+        <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities">
           <EntitySetMapping Name="BAOCAODOANHSOes">
             <EntityTypeMapping TypeName="CAMDOModel.BAOCAODOANHSO">
               <MappingFragment StoreEntitySet="BAOCAODOANHSO">

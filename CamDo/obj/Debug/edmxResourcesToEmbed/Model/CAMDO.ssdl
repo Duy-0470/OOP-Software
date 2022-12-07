@@ -97,7 +97,7 @@
     <Key>
       <PropertyRef Name="MaVaiTro" />
     </Key>
-    <Property Name="MaVaiTro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaVaiTro" Type="int" Nullable="false" />
     <Property Name="Ten" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="VATTU">
