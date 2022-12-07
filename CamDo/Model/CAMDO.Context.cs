@@ -13,10 +13,10 @@ namespace CamDo.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CAMDOEntities : DbContext
+    public partial class CAMDOEntities1 : DbContext
     {
-        public CAMDOEntities()
-            : base("name=CAMDOEntities")
+        public CAMDOEntities1()
+            : base("name=CAMDOEntities1")
         {
         }
     

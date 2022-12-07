@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="92cfbf3a1d8644a08b70041e4bf59f08" Name="Diagram1">
+      <Diagram DiagramId="c53f554ed4944290bab2e1a764bf3c30" Name="Diagram1">
         <EntityTypeShape EntityType="CAMDOModel.BAOCAODOANHSO" Width="1.5" PointX="0.75" PointY="11" />
         <EntityTypeShape EntityType="CAMDOModel.BAOCAOTON" Width="1.5" PointX="10.75" PointY="1.625" />
         <EntityTypeShape EntityType="CAMDOModel.CT_BCDS" Width="1.5" PointX="3" PointY="10.75" />

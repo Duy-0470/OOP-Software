@@ -89,7 +89,7 @@
     </Key>
     <Property Name="MaTaiKhoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ten" Type="nvarchar(max)" />
-    <Property Name="TaiKhoan" Type="nvarchar" MaxLength="100" />
+    <Property Name="TenTaiKhoan" Type="nvarchar" MaxLength="100" />
     <Property Name="MatKhau" Type="nvarchar(max)" />
     <Property Name="MaVaiTro" Type="int" Nullable="false" />
   </EntityType>

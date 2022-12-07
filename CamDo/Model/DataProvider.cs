@@ -11,11 +11,11 @@ namespace CamDo.Model
         private static DataProvider _ins;
         public static DataProvider Ins { get { if (_ins == null) _ins = new DataProvider(); return _ins; } set { _ins = value; } }
 
-        public CAMDOEntities DB { get; set; }
+        public CAMDOEntities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new CAMDOEntities();
+            DB = new CAMDOEntities1();
         }
     }
 

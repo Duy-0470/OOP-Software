@@ -94,7 +94,7 @@
           </Key>
           <Property Name="MaTaiKhoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ten" Type="nvarchar(max)" />
-          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="100" />
+          <Property Name="TenTaiKhoan" Type="nvarchar" MaxLength="100" />
           <Property Name="MatKhau" Type="nvarchar(max)" />
           <Property Name="MaVaiTro" Type="int" Nullable="false" />
         </EntityType>
@@ -259,7 +259,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CAMDOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="CAMDOEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CAMDOEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAOCAODOANHSOes" EntityType="CAMDOModel.BAOCAODOANHSO" />
           <EntitySet Name="BAOCAOTONs" EntityType="CAMDOModel.BAOCAOTON" />
           <EntitySet Name="CT_BCDS" EntityType="CAMDOModel.CT_BCDS" />
@@ -405,7 +405,7 @@
           </Key>
           <Property Name="MaTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TaiKhoan1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TenTaiKhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MatKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MaVaiTro" Type="Int32" Nullable="false" />
           <NavigationProperty Name="VAITRO" Relationship="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809" FromRole="TAIKHOAN" ToRole="VAITRO" />
@@ -530,7 +530,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities">
+        <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities1">
           <EntitySetMapping Name="BAOCAODOANHSOes">
             <EntityTypeMapping TypeName="CAMDOModel.BAOCAODOANHSO">
               <MappingFragment StoreEntitySet="BAOCAODOANHSO">
@@ -625,7 +625,7 @@
               <MappingFragment StoreEntitySet="TAIKHOAN">
                 <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
-                <ScalarProperty Name="TaiKhoan1" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
                 <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
               </MappingFragment>

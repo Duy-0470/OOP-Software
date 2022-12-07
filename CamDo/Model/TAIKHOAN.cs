@@ -16,7 +16,7 @@ namespace CamDo.Model
     {
         public int MaTaiKhoan { get; set; }
         public string Ten { get; set; }
-        public string TaiKhoan1 { get; set; }
+        public string TenTaiKhoan { get; set; }
         public string MatKhau { get; set; }
         public int MaVaiTro { get; set; }
     

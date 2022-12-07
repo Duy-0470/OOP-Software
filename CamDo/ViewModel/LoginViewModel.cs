@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,8 @@ namespace CamDo.ViewModel
         public LoginViewModel()
         {
             IsLogin = false;
+            Password = "";
+            Username = "";
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Login(p);
@@ -42,10 +45,20 @@ namespace CamDo.ViewModel
             if (p == null)
                 return;
 
-            //DataProvider.Ins.DB.TAIKHOANs.Where( x => x. == Username );
+            var accCount = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == Username && x.MatKhau == Password).Count();
 
-            IsLogin = true;
-            p.Close();
+            if (accCount > 0)
+            {
+                IsLogin = true;
+
+                p.Close();
+            }
+            else
+            {
+                IsLogin = false;
+                MessageBox.Show("Sai Tai khoan hoac Mat khau");
+
+            }
         }
     }
 }

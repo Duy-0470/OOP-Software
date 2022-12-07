@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities">
+  <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities1">
     <EntitySetMapping Name="BAOCAODOANHSOes">
       <EntityTypeMapping TypeName="CAMDOModel.BAOCAODOANHSO">
         <MappingFragment StoreEntitySet="BAOCAODOANHSO">
@@ -95,7 +95,7 @@
         <MappingFragment StoreEntitySet="TAIKHOAN">
           <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
           <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
-          <ScalarProperty Name="TaiKhoan1" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
           <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
         </MappingFragment>
