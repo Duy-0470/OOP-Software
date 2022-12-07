@@ -53,11 +53,11 @@ namespace CamDo.ViewModel
             {
                 if (User.MaVaiTro == 0)
                 {
-                    updateVisibility = Visibility.Collapsed;
+                    UpdateVisibility = Visibility.Hidden;
                 }
                 else
                 {
-                    updateVisibility = Visibility.Visible;
+                    UpdateVisibility = Visibility.Visible;
                 }
 
                 #region

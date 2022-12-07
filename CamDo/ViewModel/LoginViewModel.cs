@@ -29,7 +29,7 @@ namespace CamDo.ViewModel
             IsLogin = false;
             Password = "";
             Username = "";
-            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            LoginCommand = new RelayCommand<Window>((p) => { return EnableLoginButtonChecker(); }, (p) =>
             {
                 Login(p);
             });
@@ -76,6 +76,14 @@ namespace CamDo.ViewModel
             //}
             #endregion
 
+        }
+
+        bool EnableLoginButtonChecker()
+        {
+            if (string.IsNullOrEmpty(Username) == false && string.IsNullOrEmpty(Password) == false)
+                return true;
+            else
+                return false;
         }
     }
 }

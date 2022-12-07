@@ -17,7 +17,8 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         Name="mainWindow"
-        Title="MainWindow" Height="600" Width="800"
+        Title="MainWindow"
+        Height="590" Width="880"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
 
@@ -110,7 +111,7 @@
     <Grid>
 
         <Grid>
-
+            
             <!--// background Image-->
 
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
@@ -124,9 +125,10 @@
 
             <!--Navigation Panel-->
 
-            <Grid Width="720" HorizontalAlignment="Right" >
+            <Grid Width="800" HorizontalAlignment="Right" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
                 <UserControl Content="{Binding SelectedViewModel}" Background="Transparent" />
             </Grid>
+            
             <Grid x:Name="nav_pnl"
                   HorizontalAlignment="Left"
                   Width="65"
@@ -219,7 +221,8 @@
                     <ListView x:Name="LV"
                               Background="Transparent"
                               BorderBrush="Transparent"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              SelectionChanged="LV_SelectionChanged">
 
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
@@ -456,7 +459,7 @@
                                 <ToolTip x:Name="tt_manage"
                                          Content="Management"
                                          Style="{StaticResource tt_style}"
-                                         Visibility="{Binding UpdateVisibility}"/>
+                                         />
                             </ListViewItem.ToolTip>
 
                             <StackPanel Orientation="Horizontal"
@@ -468,7 +471,8 @@
                                        Width="30"/>
                                 <TextBlock Text="Management"
                                            Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Style="{StaticResource font_style}"
+                                           Visibility="{Binding UpdateVisibility}"/>
                             </StackPanel>
 
                         </ListViewItem>

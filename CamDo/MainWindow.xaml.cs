@@ -38,7 +38,7 @@ namespace CamDo
                 tt_remind.Visibility = Visibility.Collapsed;
                 tt_search.Visibility = Visibility.Collapsed;
                 tt_expense.Visibility = Visibility.Collapsed;
-                //tt_manage.Visibility = Visibility.Collapsed;
+                tt_manage.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -48,7 +48,7 @@ namespace CamDo
                 tt_remind.Visibility = Visibility.Visible;
                 tt_search.Visibility = Visibility.Visible;
                 tt_expense.Visibility = Visibility.Visible;
-                //tt_manage.Visibility = Visibility.Visible;
+                tt_manage.Visibility = Visibility.Visible;
             }
         }
 
@@ -69,5 +69,9 @@ namespace CamDo
         //}
         #endregion
 
+        private void LV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Tg_Btn.IsChecked = false;
+        }
     }
 }
