@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CAMDOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BAOCAODOANHSO">
+          <Key>
+            <PropertyRef Name="MaBCDS" />
+          </Key>
+          <Property Name="MaBCDS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThoiGian" Type="smalldatetime" />
+          <Property Name="TongDoanhThu" Type="money" />
+        </EntityType>
+        <EntityType Name="BAOCAOTON">
+          <Key>
+            <PropertyRef Name="MaBCT" />
+          </Key>
+          <Property Name="MaBCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaVatTu" Type="int" />
+          <Property Name="ThoiGian" Type="smalldatetime" />
+          <Property Name="TonDau" Type="int" />
+          <Property Name="PhatSinh" Type="int" />
+          <Property Name="TonCuoi" Type="int" />
+        </EntityType>
+        <EntityType Name="CT_BCDS">
+          <Key>
+            <PropertyRef Name="MaBCDS" />
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaBCDS" Type="int" Nullable="false" />
+          <Property Name="MaVatTu" Type="int" Nullable="false" />
+          <Property Name="SoLuotSua" Type="int" />
+          <Property Name="ThanhTien" Type="money" />
+          <Property Name="TiLe" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CT_HOADON">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaVatTu" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MaHoaDon" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MaKhachHang" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="TrangThai" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CT_PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaVatTu" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MaPhieuNhap" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="GiaNhap" Type="float" />
+          <Property Name="GiaTra" Type="float" />
+          <Property Name="TrangThai" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DONVI">
+          <Key>
+            <PropertyRef Name="MaDonVi" />
+          </Key>
+          <Property Name="MaDonVi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaHoaDon" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Ngay" Type="datetime" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MaKhachHang" />
+          </Key>
+          <Property Name="MaKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar(max)" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="20" />
+          <Property Name="Ngay" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Ngay" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="MaTaiKhoan" />
+          </Key>
+          <Property Name="MaTaiKhoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar(max)" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="100" />
+          <Property Name="MatKhau" Type="nvarchar(max)" />
+          <Property Name="MaVaiTro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VAITRO">
+          <Key>
+            <PropertyRef Name="MaVaiTro" />
+          </Key>
+          <Property Name="MaVaiTro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="VATTU">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaVatTu" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar(max)" />
+          <Property Name="MaDonVi" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CT_BCDS__MaBCDS__47DBAE45">
+          <End Role="BAOCAODOANHSO" Type="Self.BAOCAODOANHSO" Multiplicity="1" />
+          <End Role="CT_BCDS" Type="Self.CT_BCDS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAOCAODOANHSO">
+              <PropertyRef Name="MaBCDS" />
+            </Principal>
+            <Dependent Role="CT_BCDS">
+              <PropertyRef Name="MaBCDS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_HOADON__MaHoa__3A81B327">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="CT_HOADON" Type="Self.CT_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="MaHoaDon" />
+            </Principal>
+            <Dependent Role="CT_HOADON">
+              <PropertyRef Name="MaHoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_HOADON__MaKha__3B75D760">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="CT_HOADON" Type="Self.CT_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKhachHang" />
+            </Principal>
+            <Dependent Role="CT_HOADON">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_HOADON__Trang__398D8EEE">
+          <End Role="VATTU" Type="Self.VATTU" Multiplicity="1" />
+          <End Role="CT_HOADON" Type="Self.CT_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VATTU">
+              <PropertyRef Name="MaVatTu" />
+            </Principal>
+            <Dependent Role="CT_HOADON">
+              <PropertyRef Name="MaVatTu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_PHIEUN__MaPhi__34C8D9D1">
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+          <End Role="CT_PHIEUNHAP" Type="Self.CT_PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Principal>
+            <Dependent Role="CT_PHIEUNHAP">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_PHIEUN__Trang__33D4B598">
+          <End Role="VATTU" Type="Self.VATTU" Multiplicity="1" />
+          <End Role="CT_PHIEUNHAP" Type="Self.CT_PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VATTU">
+              <PropertyRef Name="MaVatTu" />
+            </Principal>
+            <Dependent Role="CT_PHIEUNHAP">
+              <PropertyRef Name="MaVatTu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAIKHOAN__MaVaiT__2D27B809">
+          <End Role="VAITRO" Type="Self.VAITRO" Multiplicity="1" />
+          <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VAITRO">
+              <PropertyRef Name="MaVaiTro" />
+            </Principal>
+            <Dependent Role="TAIKHOAN">
+              <PropertyRef Name="MaVaiTro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VATTU__MaDonVi__286302EC">
+          <End Role="DONVI" Type="Self.DONVI" Multiplicity="1" />
+          <End Role="VATTU" Type="Self.VATTU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONVI">
+              <PropertyRef Name="MaDonVi" />
+            </Principal>
+            <Dependent Role="VATTU">
+              <PropertyRef Name="MaDonVi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CAMDOModelStoreContainer">
+          <EntitySet Name="BAOCAODOANHSO" EntityType="Self.BAOCAODOANHSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAOCAOTON" EntityType="Self.BAOCAOTON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_BCDS" EntityType="Self.CT_BCDS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_HOADON" EntityType="Self.CT_HOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_PHIEUNHAP" EntityType="Self.CT_PHIEUNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONVI" EntityType="Self.DONVI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VAITRO" EntityType="Self.VAITRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VATTU" EntityType="Self.VATTU" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CT_BCDS__MaBCDS__47DBAE45" Association="Self.FK__CT_BCDS__MaBCDS__47DBAE45">
+            <End Role="BAOCAODOANHSO" EntitySet="BAOCAODOANHSO" />
+            <End Role="CT_BCDS" EntitySet="CT_BCDS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_HOADON__MaHoa__3A81B327" Association="Self.FK__CT_HOADON__MaHoa__3A81B327">
+            <End Role="HOADON" EntitySet="HOADON" />
+            <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_HOADON__MaKha__3B75D760" Association="Self.FK__CT_HOADON__MaKha__3B75D760">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_HOADON__Trang__398D8EEE" Association="Self.FK__CT_HOADON__Trang__398D8EEE">
+            <End Role="VATTU" EntitySet="VATTU" />
+            <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_PHIEUN__MaPhi__34C8D9D1" Association="Self.FK__CT_PHIEUN__MaPhi__34C8D9D1">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+            <End Role="CT_PHIEUNHAP" EntitySet="CT_PHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_PHIEUN__Trang__33D4B598" Association="Self.FK__CT_PHIEUN__Trang__33D4B598">
+            <End Role="VATTU" EntitySet="VATTU" />
+            <End Role="CT_PHIEUNHAP" EntitySet="CT_PHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAIKHOAN__MaVaiT__2D27B809" Association="Self.FK__TAIKHOAN__MaVaiT__2D27B809">
+            <End Role="VAITRO" EntitySet="VAITRO" />
+            <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VATTU__MaDonVi__286302EC" Association="Self.FK__VATTU__MaDonVi__286302EC">
+            <End Role="DONVI" EntitySet="DONVI" />
+            <End Role="VATTU" EntitySet="VATTU" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CAMDOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CAMDOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BAOCAODOANHSOes" EntityType="CAMDOModel.BAOCAODOANHSO" />
+          <EntitySet Name="BAOCAOTONs" EntityType="CAMDOModel.BAOCAOTON" />
+          <EntitySet Name="CT_BCDS" EntityType="CAMDOModel.CT_BCDS" />
+          <EntitySet Name="CT_HOADON" EntityType="CAMDOModel.CT_HOADON" />
+          <EntitySet Name="CT_PHIEUNHAP" EntityType="CAMDOModel.CT_PHIEUNHAP" />
+          <EntitySet Name="DONVIs" EntityType="CAMDOModel.DONVI" />
+          <EntitySet Name="HOADONs" EntityType="CAMDOModel.HOADON" />
+          <EntitySet Name="KHACHHANGs" EntityType="CAMDOModel.KHACHHANG" />
+          <EntitySet Name="PHIEUNHAPs" EntityType="CAMDOModel.PHIEUNHAP" />
+          <EntitySet Name="TAIKHOANs" EntityType="CAMDOModel.TAIKHOAN" />
+          <EntitySet Name="VAITROes" EntityType="CAMDOModel.VAITRO" />
+          <EntitySet Name="VATTUs" EntityType="CAMDOModel.VATTU" />
+          <AssociationSet Name="FK__CT_BCDS__MaBCDS__47DBAE45" Association="CAMDOModel.FK__CT_BCDS__MaBCDS__47DBAE45">
+            <End Role="BAOCAODOANHSO" EntitySet="BAOCAODOANHSOes" />
+            <End Role="CT_BCDS" EntitySet="CT_BCDS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_HOADON__MaHoa__3A81B327" Association="CAMDOModel.FK__CT_HOADON__MaHoa__3A81B327">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_HOADON__MaKha__3B75D760" Association="CAMDOModel.FK__CT_HOADON__MaKha__3B75D760">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_HOADON__Trang__398D8EEE" Association="CAMDOModel.FK__CT_HOADON__Trang__398D8EEE">
+            <End Role="VATTU" EntitySet="VATTUs" />
+            <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_PHIEUN__MaPhi__34C8D9D1" Association="CAMDOModel.FK__CT_PHIEUN__MaPhi__34C8D9D1">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+            <End Role="CT_PHIEUNHAP" EntitySet="CT_PHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_PHIEUN__Trang__33D4B598" Association="CAMDOModel.FK__CT_PHIEUN__Trang__33D4B598">
+            <End Role="VATTU" EntitySet="VATTUs" />
+            <End Role="CT_PHIEUNHAP" EntitySet="CT_PHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VATTU__MaDonVi__286302EC" Association="CAMDOModel.FK__VATTU__MaDonVi__286302EC">
+            <End Role="DONVI" EntitySet="DONVIs" />
+            <End Role="VATTU" EntitySet="VATTUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAIKHOAN__MaVaiT__2D27B809" Association="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809">
+            <End Role="VAITRO" EntitySet="VAITROes" />
+            <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BAOCAODOANHSO">
+          <Key>
+            <PropertyRef Name="MaBCDS" />
+          </Key>
+          <Property Name="MaBCDS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="0" />
+          <Property Name="TongDoanhThu" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CT_BCDS" Relationship="CAMDOModel.FK__CT_BCDS__MaBCDS__47DBAE45" FromRole="BAOCAODOANHSO" ToRole="CT_BCDS" />
+        </EntityType>
+        <EntityType Name="BAOCAOTON">
+          <Key>
+            <PropertyRef Name="MaBCT" />
+          </Key>
+          <Property Name="MaBCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaVatTu" Type="Int32" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="0" />
+          <Property Name="TonDau" Type="Int32" />
+          <Property Name="PhatSinh" Type="Int32" />
+          <Property Name="TonCuoi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CT_BCDS">
+          <Key>
+            <PropertyRef Name="MaBCDS" />
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaBCDS" Type="Int32" Nullable="false" />
+          <Property Name="MaVatTu" Type="Int32" Nullable="false" />
+          <Property Name="SoLuotSua" Type="Int32" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TiLe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BAOCAODOANHSO" Relationship="CAMDOModel.FK__CT_BCDS__MaBCDS__47DBAE45" FromRole="CT_BCDS" ToRole="BAOCAODOANHSO" />
+        </EntityType>
+        <EntityType Name="CT_HOADON">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaVatTu" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhachHang" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="TrangThai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HOADON" Relationship="CAMDOModel.FK__CT_HOADON__MaHoa__3A81B327" FromRole="CT_HOADON" ToRole="HOADON" />
+          <NavigationProperty Name="KHACHHANG" Relationship="CAMDOModel.FK__CT_HOADON__MaKha__3B75D760" FromRole="CT_HOADON" ToRole="KHACHHANG" />
+          <NavigationProperty Name="VATTU" Relationship="CAMDOModel.FK__CT_HOADON__Trang__398D8EEE" FromRole="CT_HOADON" ToRole="VATTU" />
+        </EntityType>
+        <EntityType Name="CT_PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaVatTu" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="GiaNhap" Type="Double" />
+          <Property Name="GiaTra" Type="Double" />
+          <Property Name="TrangThai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PHIEUNHAP" Relationship="CAMDOModel.FK__CT_PHIEUN__MaPhi__34C8D9D1" FromRole="CT_PHIEUNHAP" ToRole="PHIEUNHAP" />
+          <NavigationProperty Name="VATTU" Relationship="CAMDOModel.FK__CT_PHIEUN__Trang__33D4B598" FromRole="CT_PHIEUNHAP" ToRole="VATTU" />
+        </EntityType>
+        <EntityType Name="DONVI">
+          <Key>
+            <PropertyRef Name="MaDonVi" />
+          </Key>
+          <Property Name="MaDonVi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="VATTUs" Relationship="CAMDOModel.FK__VATTU__MaDonVi__286302EC" FromRole="DONVI" ToRole="VATTU" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__MaHoa__3A81B327" FromRole="HOADON" ToRole="CT_HOADON" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MaKhachHang" />
+          </Key>
+          <Property Name="MaKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__MaKha__3B75D760" FromRole="KHACHHANG" ToRole="CT_HOADON" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CT_PHIEUNHAP" Relationship="CAMDOModel.FK__CT_PHIEUN__MaPhi__34C8D9D1" FromRole="PHIEUNHAP" ToRole="CT_PHIEUNHAP" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="MaTaiKhoan" />
+          </Key>
+          <Property Name="MaTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaiKhoan1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaVaiTro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VAITRO" Relationship="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809" FromRole="TAIKHOAN" ToRole="VAITRO" />
+        </EntityType>
+        <EntityType Name="VAITRO">
+          <Key>
+            <PropertyRef Name="MaVaiTro" />
+          </Key>
+          <Property Name="MaVaiTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TAIKHOANs" Relationship="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809" FromRole="VAITRO" ToRole="TAIKHOAN" />
+        </EntityType>
+        <EntityType Name="VATTU">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaVatTu" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaDonVi" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__Trang__398D8EEE" FromRole="VATTU" ToRole="CT_HOADON" />
+          <NavigationProperty Name="CT_PHIEUNHAP" Relationship="CAMDOModel.FK__CT_PHIEUN__Trang__33D4B598" FromRole="VATTU" ToRole="CT_PHIEUNHAP" />
+          <NavigationProperty Name="DONVI" Relationship="CAMDOModel.FK__VATTU__MaDonVi__286302EC" FromRole="VATTU" ToRole="DONVI" />
+        </EntityType>
+        <Association Name="FK__CT_BCDS__MaBCDS__47DBAE45">
+          <End Type="CAMDOModel.BAOCAODOANHSO" Role="BAOCAODOANHSO" Multiplicity="1" />
+          <End Type="CAMDOModel.CT_BCDS" Role="CT_BCDS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAOCAODOANHSO">
+              <PropertyRef Name="MaBCDS" />
+            </Principal>
+            <Dependent Role="CT_BCDS">
+              <PropertyRef Name="MaBCDS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_HOADON__MaHoa__3A81B327">
+          <End Type="CAMDOModel.HOADON" Role="HOADON" Multiplicity="1" />
+          <End Type="CAMDOModel.CT_HOADON" Role="CT_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="MaHoaDon" />
+            </Principal>
+            <Dependent Role="CT_HOADON">
+              <PropertyRef Name="MaHoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_HOADON__MaKha__3B75D760">
+          <End Type="CAMDOModel.KHACHHANG" Role="KHACHHANG" Multiplicity="1" />
+          <End Type="CAMDOModel.CT_HOADON" Role="CT_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKhachHang" />
+            </Principal>
+            <Dependent Role="CT_HOADON">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_HOADON__Trang__398D8EEE">
+          <End Type="CAMDOModel.VATTU" Role="VATTU" Multiplicity="1" />
+          <End Type="CAMDOModel.CT_HOADON" Role="CT_HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VATTU">
+              <PropertyRef Name="MaVatTu" />
+            </Principal>
+            <Dependent Role="CT_HOADON">
+              <PropertyRef Name="MaVatTu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_PHIEUN__MaPhi__34C8D9D1">
+          <End Type="CAMDOModel.PHIEUNHAP" Role="PHIEUNHAP" Multiplicity="1" />
+          <End Type="CAMDOModel.CT_PHIEUNHAP" Role="CT_PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Principal>
+            <Dependent Role="CT_PHIEUNHAP">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_PHIEUN__Trang__33D4B598">
+          <End Type="CAMDOModel.VATTU" Role="VATTU" Multiplicity="1" />
+          <End Type="CAMDOModel.CT_PHIEUNHAP" Role="CT_PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VATTU">
+              <PropertyRef Name="MaVatTu" />
+            </Principal>
+            <Dependent Role="CT_PHIEUNHAP">
+              <PropertyRef Name="MaVatTu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VATTU__MaDonVi__286302EC">
+          <End Type="CAMDOModel.DONVI" Role="DONVI" Multiplicity="1" />
+          <End Type="CAMDOModel.VATTU" Role="VATTU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONVI">
+              <PropertyRef Name="MaDonVi" />
+            </Principal>
+            <Dependent Role="VATTU">
+              <PropertyRef Name="MaDonVi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAIKHOAN__MaVaiT__2D27B809">
+          <End Type="CAMDOModel.VAITRO" Role="VAITRO" Multiplicity="1" />
+          <End Type="CAMDOModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VAITRO">
+              <PropertyRef Name="MaVaiTro" />
+            </Principal>
+            <Dependent Role="TAIKHOAN">
+              <PropertyRef Name="MaVaiTro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities">
+          <EntitySetMapping Name="BAOCAODOANHSOes">
+            <EntityTypeMapping TypeName="CAMDOModel.BAOCAODOANHSO">
+              <MappingFragment StoreEntitySet="BAOCAODOANHSO">
+                <ScalarProperty Name="TongDoanhThu" ColumnName="TongDoanhThu" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="MaBCDS" ColumnName="MaBCDS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAOCAOTONs">
+            <EntityTypeMapping TypeName="CAMDOModel.BAOCAOTON">
+              <MappingFragment StoreEntitySet="BAOCAOTON">
+                <ScalarProperty Name="TonCuoi" ColumnName="TonCuoi" />
+                <ScalarProperty Name="PhatSinh" ColumnName="PhatSinh" />
+                <ScalarProperty Name="TonDau" ColumnName="TonDau" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+                <ScalarProperty Name="MaBCT" ColumnName="MaBCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_BCDS">
+            <EntityTypeMapping TypeName="CAMDOModel.CT_BCDS">
+              <MappingFragment StoreEntitySet="CT_BCDS">
+                <ScalarProperty Name="TiLe" ColumnName="TiLe" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="SoLuotSua" ColumnName="SoLuotSua" />
+                <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+                <ScalarProperty Name="MaBCDS" ColumnName="MaBCDS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_HOADON">
+            <EntityTypeMapping TypeName="CAMDOModel.CT_HOADON">
+              <MappingFragment StoreEntitySet="CT_HOADON">
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+                <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_PHIEUNHAP">
+            <EntityTypeMapping TypeName="CAMDOModel.CT_PHIEUNHAP">
+              <MappingFragment StoreEntitySet="CT_PHIEUNHAP">
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="GiaTra" ColumnName="GiaTra" />
+                <ScalarProperty Name="GiaNhap" ColumnName="GiaNhap" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
+                <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONVIs">
+            <EntityTypeMapping TypeName="CAMDOModel.DONVI">
+              <MappingFragment StoreEntitySet="DONVI">
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONs">
+            <EntityTypeMapping TypeName="CAMDOModel.HOADON">
+              <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="CAMDOModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUNHAPs">
+            <EntityTypeMapping TypeName="CAMDOModel.PHIEUNHAP">
+              <MappingFragment StoreEntitySet="PHIEUNHAP">
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAIKHOANs">
+            <EntityTypeMapping TypeName="CAMDOModel.TAIKHOAN">
+              <MappingFragment StoreEntitySet="TAIKHOAN">
+                <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TaiKhoan1" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VAITROes">
+            <EntityTypeMapping TypeName="CAMDOModel.VAITRO">
+              <MappingFragment StoreEntitySet="VAITRO">
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VATTUs">
+            <EntityTypeMapping TypeName="CAMDOModel.VATTU">
+              <MappingFragment StoreEntitySet="VATTU">
+                <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

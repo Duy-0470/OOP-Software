@@ -1,5 +1,4 @@
-﻿using CamDo.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +22,6 @@ namespace CamDo
         public LoginWindow()
         {
             InitializeComponent();
-            this.DataContext = new LoginViewModel();
         }
     }
 }

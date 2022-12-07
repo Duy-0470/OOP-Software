@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/report.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/camdo.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/camdo.tt")]
 
 

@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CAMDOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CAMDOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BAOCAODOANHSOes" EntityType="CAMDOModel.BAOCAODOANHSO" />
+    <EntitySet Name="BAOCAOTONs" EntityType="CAMDOModel.BAOCAOTON" />
+    <EntitySet Name="CT_BCDS" EntityType="CAMDOModel.CT_BCDS" />
+    <EntitySet Name="CT_HOADON" EntityType="CAMDOModel.CT_HOADON" />
+    <EntitySet Name="CT_PHIEUNHAP" EntityType="CAMDOModel.CT_PHIEUNHAP" />
+    <EntitySet Name="DONVIs" EntityType="CAMDOModel.DONVI" />
+    <EntitySet Name="HOADONs" EntityType="CAMDOModel.HOADON" />
+    <EntitySet Name="KHACHHANGs" EntityType="CAMDOModel.KHACHHANG" />
+    <EntitySet Name="PHIEUNHAPs" EntityType="CAMDOModel.PHIEUNHAP" />
+    <EntitySet Name="TAIKHOANs" EntityType="CAMDOModel.TAIKHOAN" />
+    <EntitySet Name="VAITROes" EntityType="CAMDOModel.VAITRO" />
+    <EntitySet Name="VATTUs" EntityType="CAMDOModel.VATTU" />
+    <AssociationSet Name="FK__CT_BCDS__MaBCDS__47DBAE45" Association="CAMDOModel.FK__CT_BCDS__MaBCDS__47DBAE45">
+      <End Role="BAOCAODOANHSO" EntitySet="BAOCAODOANHSOes" />
+      <End Role="CT_BCDS" EntitySet="CT_BCDS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_HOADON__MaHoa__3A81B327" Association="CAMDOModel.FK__CT_HOADON__MaHoa__3A81B327">
+      <End Role="HOADON" EntitySet="HOADONs" />
+      <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_HOADON__MaKha__3B75D760" Association="CAMDOModel.FK__CT_HOADON__MaKha__3B75D760">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_HOADON__Trang__398D8EEE" Association="CAMDOModel.FK__CT_HOADON__Trang__398D8EEE">
+      <End Role="VATTU" EntitySet="VATTUs" />
+      <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PHIEUN__MaPhi__34C8D9D1" Association="CAMDOModel.FK__CT_PHIEUN__MaPhi__34C8D9D1">
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+      <End Role="CT_PHIEUNHAP" EntitySet="CT_PHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PHIEUN__Trang__33D4B598" Association="CAMDOModel.FK__CT_PHIEUN__Trang__33D4B598">
+      <End Role="VATTU" EntitySet="VATTUs" />
+      <End Role="CT_PHIEUNHAP" EntitySet="CT_PHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VATTU__MaDonVi__286302EC" Association="CAMDOModel.FK__VATTU__MaDonVi__286302EC">
+      <End Role="DONVI" EntitySet="DONVIs" />
+      <End Role="VATTU" EntitySet="VATTUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TAIKHOAN__MaVaiT__2D27B809" Association="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809">
+      <End Role="VAITRO" EntitySet="VAITROes" />
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BAOCAODOANHSO">
+    <Key>
+      <PropertyRef Name="MaBCDS" />
+    </Key>
+    <Property Name="MaBCDS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ThoiGian" Type="DateTime" Precision="0" />
+    <Property Name="TongDoanhThu" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="CT_BCDS" Relationship="CAMDOModel.FK__CT_BCDS__MaBCDS__47DBAE45" FromRole="BAOCAODOANHSO" ToRole="CT_BCDS" />
+  </EntityType>
+  <EntityType Name="BAOCAOTON">
+    <Key>
+      <PropertyRef Name="MaBCT" />
+    </Key>
+    <Property Name="MaBCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaVatTu" Type="Int32" />
+    <Property Name="ThoiGian" Type="DateTime" Precision="0" />
+    <Property Name="TonDau" Type="Int32" />
+    <Property Name="PhatSinh" Type="Int32" />
+    <Property Name="TonCuoi" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CT_BCDS">
+    <Key>
+      <PropertyRef Name="MaBCDS" />
+      <PropertyRef Name="MaVatTu" />
+    </Key>
+    <Property Name="MaBCDS" Type="Int32" Nullable="false" />
+    <Property Name="MaVatTu" Type="Int32" Nullable="false" />
+    <Property Name="SoLuotSua" Type="Int32" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TiLe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BAOCAODOANHSO" Relationship="CAMDOModel.FK__CT_BCDS__MaBCDS__47DBAE45" FromRole="CT_BCDS" ToRole="BAOCAODOANHSO" />
+  </EntityType>
+  <EntityType Name="CT_HOADON">
+    <Key>
+      <PropertyRef Name="MaVatTu" />
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaVatTu" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MaKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="TrangThai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOADON" Relationship="CAMDOModel.FK__CT_HOADON__MaHoa__3A81B327" FromRole="CT_HOADON" ToRole="HOADON" />
+    <NavigationProperty Name="KHACHHANG" Relationship="CAMDOModel.FK__CT_HOADON__MaKha__3B75D760" FromRole="CT_HOADON" ToRole="KHACHHANG" />
+    <NavigationProperty Name="VATTU" Relationship="CAMDOModel.FK__CT_HOADON__Trang__398D8EEE" FromRole="CT_HOADON" ToRole="VATTU" />
+  </EntityType>
+  <EntityType Name="CT_PHIEUNHAP">
+    <Key>
+      <PropertyRef Name="MaVatTu" />
+      <PropertyRef Name="MaPhieuNhap" />
+    </Key>
+    <Property Name="MaVatTu" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="GiaNhap" Type="Double" />
+    <Property Name="GiaTra" Type="Double" />
+    <Property Name="TrangThai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIEUNHAP" Relationship="CAMDOModel.FK__CT_PHIEUN__MaPhi__34C8D9D1" FromRole="CT_PHIEUNHAP" ToRole="PHIEUNHAP" />
+    <NavigationProperty Name="VATTU" Relationship="CAMDOModel.FK__CT_PHIEUN__Trang__33D4B598" FromRole="CT_PHIEUNHAP" ToRole="VATTU" />
+  </EntityType>
+  <EntityType Name="DONVI">
+    <Key>
+      <PropertyRef Name="MaDonVi" />
+    </Key>
+    <Property Name="MaDonVi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="VATTUs" Relationship="CAMDOModel.FK__VATTU__MaDonVi__286302EC" FromRole="DONVI" ToRole="VATTU" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__MaHoa__3A81B327" FromRole="HOADON" ToRole="CT_HOADON" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKhachHang" />
+    </Key>
+    <Property Name="MaKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__MaKha__3B75D760" FromRole="KHACHHANG" ToRole="CT_HOADON" />
+  </EntityType>
+  <EntityType Name="PHIEUNHAP">
+    <Key>
+      <PropertyRef Name="MaPhieuNhap" />
+    </Key>
+    <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CT_PHIEUNHAP" Relationship="CAMDOModel.FK__CT_PHIEUN__MaPhi__34C8D9D1" FromRole="PHIEUNHAP" ToRole="CT_PHIEUNHAP" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="MaTaiKhoan" />
+    </Key>
+    <Property Name="MaTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaiKhoan1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaVaiTro" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VAITRO" Relationship="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809" FromRole="TAIKHOAN" ToRole="VAITRO" />
+  </EntityType>
+  <EntityType Name="VAITRO">
+    <Key>
+      <PropertyRef Name="MaVaiTro" />
+    </Key>
+    <Property Name="MaVaiTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TAIKHOANs" Relationship="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809" FromRole="VAITRO" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="VATTU">
+    <Key>
+      <PropertyRef Name="MaVatTu" />
+    </Key>
+    <Property Name="MaVatTu" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaDonVi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__Trang__398D8EEE" FromRole="VATTU" ToRole="CT_HOADON" />
+    <NavigationProperty Name="CT_PHIEUNHAP" Relationship="CAMDOModel.FK__CT_PHIEUN__Trang__33D4B598" FromRole="VATTU" ToRole="CT_PHIEUNHAP" />
+    <NavigationProperty Name="DONVI" Relationship="CAMDOModel.FK__VATTU__MaDonVi__286302EC" FromRole="VATTU" ToRole="DONVI" />
+  </EntityType>
+  <Association Name="FK__CT_BCDS__MaBCDS__47DBAE45">
+    <End Type="CAMDOModel.BAOCAODOANHSO" Role="BAOCAODOANHSO" Multiplicity="1" />
+    <End Type="CAMDOModel.CT_BCDS" Role="CT_BCDS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAOCAODOANHSO">
+        <PropertyRef Name="MaBCDS" />
+      </Principal>
+      <Dependent Role="CT_BCDS">
+        <PropertyRef Name="MaBCDS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_HOADON__MaHoa__3A81B327">
+    <End Type="CAMDOModel.HOADON" Role="HOADON" Multiplicity="1" />
+    <End Type="CAMDOModel.CT_HOADON" Role="CT_HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="CT_HOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_HOADON__MaKha__3B75D760">
+    <End Type="CAMDOModel.KHACHHANG" Role="KHACHHANG" Multiplicity="1" />
+    <End Type="CAMDOModel.CT_HOADON" Role="CT_HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="CT_HOADON">
+        <PropertyRef Name="MaKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_HOADON__Trang__398D8EEE">
+    <End Type="CAMDOModel.VATTU" Role="VATTU" Multiplicity="1" />
+    <End Type="CAMDOModel.CT_HOADON" Role="CT_HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VATTU">
+        <PropertyRef Name="MaVatTu" />
+      </Principal>
+      <Dependent Role="CT_HOADON">
+        <PropertyRef Name="MaVatTu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_PHIEUN__MaPhi__34C8D9D1">
+    <End Type="CAMDOModel.PHIEUNHAP" Role="PHIEUNHAP" Multiplicity="1" />
+    <End Type="CAMDOModel.CT_PHIEUNHAP" Role="CT_PHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUNHAP">
+        <PropertyRef Name="MaPhieuNhap" />
+      </Principal>
+      <Dependent Role="CT_PHIEUNHAP">
+        <PropertyRef Name="MaPhieuNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_PHIEUN__Trang__33D4B598">
+    <End Type="CAMDOModel.VATTU" Role="VATTU" Multiplicity="1" />
+    <End Type="CAMDOModel.CT_PHIEUNHAP" Role="CT_PHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VATTU">
+        <PropertyRef Name="MaVatTu" />
+      </Principal>
+      <Dependent Role="CT_PHIEUNHAP">
+        <PropertyRef Name="MaVatTu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VATTU__MaDonVi__286302EC">
+    <End Type="CAMDOModel.DONVI" Role="DONVI" Multiplicity="1" />
+    <End Type="CAMDOModel.VATTU" Role="VATTU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONVI">
+        <PropertyRef Name="MaDonVi" />
+      </Principal>
+      <Dependent Role="VATTU">
+        <PropertyRef Name="MaDonVi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TAIKHOAN__MaVaiT__2D27B809">
+    <End Type="CAMDOModel.VAITRO" Role="VAITRO" Multiplicity="1" />
+    <End Type="CAMDOModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VAITRO">
+        <PropertyRef Name="MaVaiTro" />
+      </Principal>
+      <Dependent Role="TAIKHOAN">
+        <PropertyRef Name="MaVaiTro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
