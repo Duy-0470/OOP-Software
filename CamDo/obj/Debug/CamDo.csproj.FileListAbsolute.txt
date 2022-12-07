@@ -79,3 +79,5 @@ D:\School\OOP\OOP-Software\CamDo\bin\Debug\EntityFramework.SqlServer.dll
 D:\School\OOP\OOP-Software\CamDo\bin\Debug\EntityFramework.xml
 D:\School\OOP\OOP-Software\CamDo\bin\Debug\EntityFramework.SqlServer.xml
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\CamDo_Content.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\Temporary.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\Temporary.baml

@@ -164,6 +164,9 @@
     <Compile Include="UC\UCView\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UC\UCView\Temporary.xaml.cs">
+      <DependentUpon>Temporary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -212,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UC\UCView\SearchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCView\Temporary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

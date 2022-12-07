@@ -18,7 +18,7 @@
         DataContext="{StaticResource MainVM}"
         Name="mainWindow"
         Title="MainWindow"
-        Height="590" Width="880"
+        Height="590" Width="1280"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
 
@@ -125,7 +125,7 @@
 
             <!--Navigation Panel-->
 
-            <Grid Width="800" HorizontalAlignment="Right" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
+            <Grid Width="1200" HorizontalAlignment="Right" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
                 <UserControl Content="{Binding SelectedViewModel}" Background="Transparent" />
             </Grid>
             
