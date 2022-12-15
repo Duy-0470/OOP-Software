@@ -33,7 +33,6 @@ namespace CamDo
             if (Tg_Btn.IsChecked == true)
             {
                 tt_home.Visibility = Visibility.Collapsed;
-                tt_customer.Visibility = Visibility.Collapsed;
                 tt_pawn.Visibility = Visibility.Collapsed;
                 tt_remind.Visibility = Visibility.Collapsed;
                 tt_search.Visibility = Visibility.Collapsed;
@@ -43,7 +42,6 @@ namespace CamDo
             else
             {
                 tt_home.Visibility = Visibility.Visible;
-                tt_customer.Visibility = Visibility.Visible;
                 tt_pawn.Visibility = Visibility.Visible;
                 tt_remind.Visibility = Visibility.Visible;
                 tt_search.Visibility = Visibility.Visible;

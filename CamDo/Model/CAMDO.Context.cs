@@ -26,16 +26,12 @@ namespace CamDo.Model
         }
     
         public virtual DbSet<BAOCAODOANHSO> BAOCAODOANHSOes { get; set; }
-        public virtual DbSet<BAOCAOTON> BAOCAOTONs { get; set; }
         public virtual DbSet<CT_BCDS> CT_BCDS { get; set; }
         public virtual DbSet<CT_HOADON> CT_HOADON { get; set; }
-        public virtual DbSet<CT_PHIEUNHAP> CT_PHIEUNHAP { get; set; }
-        public virtual DbSet<DONVI> DONVIs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
-        public virtual DbSet<PHIEUNHAP> PHIEUNHAPs { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
+        public virtual DbSet<THUTIEN> THUTIENs { get; set; }
         public virtual DbSet<VAITRO> VAITROes { get; set; }
-        public virtual DbSet<VATTU> VATTUs { get; set; }
     }
 }

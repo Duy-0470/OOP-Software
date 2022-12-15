@@ -9,12 +9,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="590" d:DesignWidth="1200"
              d:Background="Transparent">
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <!--BEN TREN-->
+        
         <Grid Grid.Row="0"
               Margin="10">
             <Grid.ColumnDefinitions>
@@ -22,6 +24,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <!--BEN TRAI-->
+            
             <Grid Grid.Column="0"
                   Margin="10">
                 <Grid.RowDefinitions>
@@ -41,10 +45,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
                         <TextBlock Text="Mã hàng hóa: "
-                                               HorizontalAlignment="Center"
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -53,11 +57,13 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -71,10 +77,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
                         <TextBlock Text="Giá trị hiện tại: "
-                                               HorizontalAlignment="Center"
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -83,11 +89,13 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -101,10 +109,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
                         <TextBlock Text="Mã phiếu: "
-                                               HorizontalAlignment="Center"
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -113,11 +121,13 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -131,10 +141,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
                         <TextBlock Text="Tên khách hàng: "
-                                               HorizontalAlignment="Center"
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -143,11 +153,13 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -158,13 +170,13 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="0"
+                   <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
                         <TextBlock Text="Lợi nhuận: "
-                                               HorizontalAlignment="Center"
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -173,17 +185,21 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
 
             </Grid>
 
+            <!--BEN PHAI-->
+            
             <Grid Grid.Column="1"
                   Margin="10">
                 <Grid.RowDefinitions>
@@ -203,10 +219,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
                         <TextBlock Text="Tên hàng hóa: "
-                                               HorizontalAlignment="Center"
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -215,11 +231,11 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -233,10 +249,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
                         <TextBlock Text="Giá trị cầm cố: "
-                                               HorizontalAlignment="Center"
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -245,11 +261,13 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -263,10 +281,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
-                        <TextBlock Text="Thòi hạn: "
-                                               HorizontalAlignment="Center"
+                        <TextBlock Text="Thời hạn: "
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -275,11 +293,13 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -293,10 +313,10 @@
                     <Grid Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="0,0,0,0"
-                                      Width="150">
+                                      Width="280">
 
-                        <TextBlock Text="CMND/CCCD: "
-                                               HorizontalAlignment="Center"
+                        <TextBlock Text="CCCD/CMND: "
+                                               HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
 
@@ -305,11 +325,13 @@
                     <Grid Grid.Column="1"
                                       HorizontalAlignment="Right"
                                       Margin="10"
-                                      Width="240">
+                                      Width="260">
 
-                        <TextBox
-                                        materialDesign:HintAssist.Hint="Floating Hint"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 />
 
                     </Grid>
                 </Grid>
@@ -387,32 +409,10 @@
 
         </Grid>
 
+        <!--BEN DUOI-->
+        
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0"
-                  HorizontalAlignment="Left"
-                  Width="80">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0">
-                    <TextBlock Text="Mã phiếu"
-                               FontSize="20"></TextBlock>
-                </Grid>
-                
-            </Grid>
+            
         </Grid>
         
         

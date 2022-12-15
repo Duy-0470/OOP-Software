@@ -15,7 +15,6 @@ namespace CamDo.Model
     public partial class CT_BCDS
     {
         public int MaBCDS { get; set; }
-        public int MaVatTu { get; set; }
         public Nullable<int> SoLuotSua { get; set; }
         public Nullable<decimal> ThanhTien { get; set; }
         public string TiLe { get; set; }

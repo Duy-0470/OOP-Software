@@ -82,13 +82,18 @@
                                Text="Tên tài khoản:"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
-                               FontSize="35">
+                               FontSize="35"
+                               Margin="0,0,10,0">
                     </TextBlock>
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <TextBox materialDesign:HintAssist.Hint=""
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    
+                    <TextBox Width="250"
+                             Height="50"
+                             VerticalAlignment="Bottom"
+                             FontSize="35"/>
+                    
                 </Grid>
                 
             </Grid>
@@ -108,16 +113,18 @@
                                Text="Họ tên:"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
-                               FontSize="35">
+                               FontSize="35"
+                               Margin="0,0,10,0">
                     </TextBlock>
                 </Grid>
 
-                <Grid Grid.Column="1"
-                      HorizontalAlignment="Right"
-                      Width="370">
-                    <TextBox Width="400"
-                             materialDesign:HintAssist.Hint=""
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <Grid Grid.Column="1">
+
+                    <TextBox Width="250"
+                             Height="50"
+                             VerticalAlignment="Bottom"
+                             FontSize="35"/>
+
                 </Grid>
 
             </Grid>
@@ -137,16 +144,18 @@
                                Text="Chức vụ:"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
-                               FontSize="35">
+                               FontSize="35"
+                               Margin="0,0,10,0">
                     </TextBlock>
                 </Grid>
 
-                <Grid Grid.Column="1"
-                      HorizontalAlignment="Right"
-                      Width="350">
-                    <TextBox Width="400"
-                             materialDesign:HintAssist.Hint=""
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <Grid Grid.Column="1">
+
+                    <TextBox Width="250"
+                             Height="50"
+                             VerticalAlignment="Bottom"
+                             FontSize="35"/>
+
                 </Grid>
 
             </Grid>

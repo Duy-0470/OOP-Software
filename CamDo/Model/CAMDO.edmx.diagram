@@ -4,27 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="230eb730c24440f0a2cc67cb5fb61271" Name="Diagram1">
-        <EntityTypeShape EntityType="CAMDOModel.BAOCAODOANHSO" Width="1.5" PointX="0.75" PointY="11" />
-        <EntityTypeShape EntityType="CAMDOModel.BAOCAOTON" Width="1.5" PointX="10.75" PointY="1.625" />
-        <EntityTypeShape EntityType="CAMDOModel.CT_BCDS" Width="1.5" PointX="3" PointY="10.75" />
-        <EntityTypeShape EntityType="CAMDOModel.CT_HOADON" Width="1.5" PointX="5.25" PointY="3.625" />
-        <EntityTypeShape EntityType="CAMDOModel.CT_PHIEUNHAP" Width="1.5" PointX="8.25" PointY="3.625" />
-        <EntityTypeShape EntityType="CAMDOModel.DONVI" Width="1.5" PointX="0.75" PointY="4.125" />
-        <EntityTypeShape EntityType="CAMDOModel.HOADON" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="CAMDOModel.KHACHHANG" Width="1.5" PointX="3" PointY="7.125" />
-        <EntityTypeShape EntityType="CAMDOModel.PHIEUNHAP" Width="1.5" PointX="6" PointY="1.125" />
-        <EntityTypeShape EntityType="CAMDOModel.TAIKHOAN" Width="1.5" PointX="8" PointY="7.75" />
-        <EntityTypeShape EntityType="CAMDOModel.VAITRO" Width="1.5" PointX="5.75" PointY="8.125" />
-        <EntityTypeShape EntityType="CAMDOModel.VATTU" Width="1.5" PointX="3" PointY="3.875" />
-        <AssociationConnector Association="CAMDOModel.FK__CT_BCDS__MaBCDS__47DBAE45" />
-        <AssociationConnector Association="CAMDOModel.FK__CT_HOADON__MaHoa__3A81B327" />
-        <AssociationConnector Association="CAMDOModel.FK__CT_HOADON__MaKha__3B75D760" />
-        <AssociationConnector Association="CAMDOModel.FK__CT_HOADON__Trang__398D8EEE" />
-        <AssociationConnector Association="CAMDOModel.FK__CT_PHIEUN__MaPhi__34C8D9D1" />
-        <AssociationConnector Association="CAMDOModel.FK__CT_PHIEUN__Trang__33D4B598" />
-        <AssociationConnector Association="CAMDOModel.FK__VATTU__MaDonVi__286302EC" />
-        <AssociationConnector Association="CAMDOModel.FK__TAIKHOAN__MaVaiT__2D27B809" />
+      <Diagram DiagramId="57f1099909be4adb83396ed3a23e89c5" Name="Diagram1">
+        <EntityTypeShape EntityType="CAMDOModel.BAOCAODOANHSO" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="CAMDOModel.CT_BCDS" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="CAMDOModel.CT_HOADON" Width="1.5" PointX="5.25" PointY="3.75" />
+        <EntityTypeShape EntityType="CAMDOModel.HOADON" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="CAMDOModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="CAMDOModel.TAIKHOAN" Width="1.5" PointX="10" PointY="0.875" />
+        <EntityTypeShape EntityType="CAMDOModel.THUTIEN" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="CAMDOModel.VAITRO" Width="1.5" PointX="7.75" PointY="1.25" />
+        <AssociationConnector Association="CAMDOModel.FK__CT_BCDS__TiLe__35BCFE0A" />
+        <AssociationConnector Association="CAMDOModel.FK__CT_HOADON__LaiSu__2E1BDC42" />
+        <AssociationConnector Association="CAMDOModel.FK__HOADON__Ngay__2B3F6F97" />
+        <AssociationConnector Association="CAMDOModel.FK__THUTIEN__SoTienT__38996AB5" />
+        <AssociationConnector Association="CAMDOModel.FK__TAIKHOAN__MaVaiT__267ABA7A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

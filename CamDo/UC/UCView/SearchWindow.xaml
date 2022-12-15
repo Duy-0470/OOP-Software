@@ -8,8 +8,73 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="590" d:DesignWidth="1200"
-             d:Background="Transparent">
-    <Grid>
-        <TextBox Text="Search" FontSize="100"/>
+             d:Background="Transparent"
+             x:Name="SearchVM">
+
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="40*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="cbxOption"  
+                  FontSize="40"
+                  Grid.Row="1"
+                  HorizontalContentAlignment="Center"
+                  HorizontalAlignment="Stretch"
+                  SelectedItem="{Binding SelectedItem}"
+                  ItemsSource="{Binding Option}"
+                  />
+        <TextBox x:Name="txtbInput" Grid.Column="1"
+                 FontSize="40"
+                 Height="60"
+                 Margin="2,4,0,0"
+                 VerticalContentAlignment="Bottom"  Grid.Row="1"
+                 Text="{Binding InputedItem}">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#f5c1c1" Offset="0.2"/>
+                    <GradientStop Color="#e7cfcf" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Button x:Name="btnSearch" Grid.Row="2"
+                Content="Tìm kiếm"
+                FontSize="35" 
+                Height="55"
+                Command="{Binding SearchCommand}">
+            
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#f5c1c1" Offset="0.2"/>
+                    <GradientStop Color="#e7cfcf" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+
+
+        </Button>
+        
+        <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Grid.Row="3"
+                  Grid.ColumnSpan="2">
+            <!--<ListView ItemsSource="{Binding XeList}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Number}"/>
+                        <GridViewColumn Header="Biển số" DisplayMemberBinding="{Binding Car.BienSo}"/>
+                        <GridViewColumn Header="Tên chủ xe" DisplayMemberBinding ="{Binding Car.TenChuXe}"/>
+                        <GridViewColumn Header="Tiền nợ" DisplayMemberBinding="{Binding Car.TienNo, StringFormat='#,0'}"/>
+                        <GridViewColumn Header="Hiệu xe" DisplayMemberBinding="{Binding Car.HIEUXE.TenHieuXe}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>-->
+        </ScrollViewer>
     </Grid>
+
 </UserControl>

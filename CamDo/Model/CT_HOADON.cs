@@ -14,14 +14,13 @@ namespace CamDo.Model
     
     public partial class CT_HOADON
     {
-        public string MaVatTu { get; set; }
-        public string MaHoaDon { get; set; }
-        public int MaKhachHang { get; set; }
+        public int MaCT_HoaDon { get; set; }
+        public Nullable<int> MaHoaDon { get; set; }
+        public string TenVatTu { get; set; }
         public Nullable<int> SoLuong { get; set; }
-        public string TrangThai { get; set; }
+        public Nullable<int> GiaThamDinh { get; set; }
+        public Nullable<int> LaiSuat { get; set; }
     
         public virtual HOADON HOADON { get; set; }
-        public virtual KHACHHANG KHACHHANG { get; set; }
-        public virtual VATTU VATTU { get; set; }
     }
 }

@@ -12,18 +12,13 @@ namespace CamDo.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DONVI
+    public partial class THUTIEN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DONVI()
-        {
-            this.VATTUs = new HashSet<VATTU>();
-        }
+        public int MaThuTien { get; set; }
+        public Nullable<int> MaHoaDon { get; set; }
+        public Nullable<System.DateTime> NgayThuTien { get; set; }
+        public Nullable<int> SoTienThu { get; set; }
     
-        public int MaDonVi { get; set; }
-        public string Ten { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VATTU> VATTUs { get; set; }
+        public virtual HOADON HOADON { get; set; }
     }
 }
