@@ -1,24 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CAMDOModelStoreContainer" CdmEntityContainer="CAMDOEntities">
-    <EntitySetMapping Name="BAOCAODOANHSOes">
+    <EntitySetMapping Name="BAOCAODOANHSO">
       <EntityTypeMapping TypeName="CAMDOModel.BAOCAODOANHSO">
         <MappingFragment StoreEntitySet="BAOCAODOANHSO">
           <ScalarProperty Name="TongDoanhThu" ColumnName="TongDoanhThu" />
           <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
           <ScalarProperty Name="MaBCDS" ColumnName="MaBCDS" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BAOCAOTONs">
-      <EntityTypeMapping TypeName="CAMDOModel.BAOCAOTON">
-        <MappingFragment StoreEntitySet="BAOCAOTON">
-          <ScalarProperty Name="TonCuoi" ColumnName="TonCuoi" />
-          <ScalarProperty Name="PhatSinh" ColumnName="PhatSinh" />
-          <ScalarProperty Name="TonDau" ColumnName="TonDau" />
-          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
-          <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
-          <ScalarProperty Name="MaBCT" ColumnName="MaBCT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -28,7 +16,6 @@
           <ScalarProperty Name="TiLe" ColumnName="TiLe" />
           <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
           <ScalarProperty Name="SoLuotSua" ColumnName="SoLuotSua" />
-          <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
           <ScalarProperty Name="MaBCDS" ColumnName="MaBCDS" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -36,85 +23,62 @@
     <EntitySetMapping Name="CT_HOADON">
       <EntityTypeMapping TypeName="CAMDOModel.CT_HOADON">
         <MappingFragment StoreEntitySet="CT_HOADON">
-          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="HanChot" ColumnName="HanChot" />
+          <ScalarProperty Name="LaiSuat" ColumnName="LaiSuat" />
+          <ScalarProperty Name="GiaChuoc" ColumnName="GiaChuoc" />
+          <ScalarProperty Name="GiaCam" ColumnName="GiaCam" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="TenVatTu" ColumnName="TenVatTu" />
           <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
-          <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+          <ScalarProperty Name="MaCT_HoaDon" ColumnName="MaCT_HoaDon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CT_PHIEUNHAP">
-      <EntityTypeMapping TypeName="CAMDOModel.CT_PHIEUNHAP">
-        <MappingFragment StoreEntitySet="CT_PHIEUNHAP">
-          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-          <ScalarProperty Name="GiaTra" ColumnName="GiaTra" />
-          <ScalarProperty Name="GiaNhap" ColumnName="GiaNhap" />
-          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-          <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
-          <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DONVIs">
-      <EntityTypeMapping TypeName="CAMDOModel.DONVI">
-        <MappingFragment StoreEntitySet="DONVI">
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HOADONs">
+    <EntitySetMapping Name="HOADON">
       <EntityTypeMapping TypeName="CAMDOModel.HOADON">
         <MappingFragment StoreEntitySet="HOADON">
           <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
           <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KHACHHANGs">
+    <EntitySetMapping Name="KHACHHANG">
       <EntityTypeMapping TypeName="CAMDOModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
           <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PHIEUNHAPs">
-      <EntityTypeMapping TypeName="CAMDOModel.PHIEUNHAP">
-        <MappingFragment StoreEntitySet="PHIEUNHAP">
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-          <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TAIKHOANs">
+    <EntitySetMapping Name="TAIKHOAN">
       <EntityTypeMapping TypeName="CAMDOModel.TAIKHOAN">
         <MappingFragment StoreEntitySet="TAIKHOAN">
           <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
           <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
           <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
           <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VAITROes">
+    <EntitySetMapping Name="THUTIEN">
+      <EntityTypeMapping TypeName="CAMDOModel.THUTIEN">
+        <MappingFragment StoreEntitySet="THUTIEN">
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="NgayThuTien" ColumnName="NgayThuTien" />
+          <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+          <ScalarProperty Name="MaThuTien" ColumnName="MaThuTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VAITRO">
       <EntityTypeMapping TypeName="CAMDOModel.VAITRO">
         <MappingFragment StoreEntitySet="VAITRO">
           <ScalarProperty Name="Ten" ColumnName="Ten" />
           <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VATTUs">
-      <EntityTypeMapping TypeName="CAMDOModel.VATTU">
-        <MappingFragment StoreEntitySet="VATTU">
-          <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

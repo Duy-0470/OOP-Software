@@ -418,37 +418,6 @@
 
                         </ListViewItem>
 
-                        <!--Manangement-->
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15"
-                                      MouseEnter="ListViewItem_MouseEnter"
-                                      Tag="Management"
-                                      Visibility="{Binding UpdateVisibility}">
-
-                            <!--ToolTip-->
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_manage"
-                                         Content="Management"
-                                         Style="{StaticResource tt_style}"
-                                         />
-                            </ListViewItem.ToolTip>
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Icon/Manage.png"
-                                       Stretch="Uniform"
-                                       Margin="12,0,0,0"
-                                       Height="30"
-                                       Width="30"/>
-                                <TextBlock Text="Management"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"
-                                           Visibility="{Binding UpdateVisibility}"/>
-                            </StackPanel>
-
-                        </ListViewItem>
-
                     </ListView>
 
                 </StackPanel>

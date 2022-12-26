@@ -15,7 +15,7 @@ namespace CamDo.Model
     public partial class TAIKHOAN
     {
         public int MaTaiKhoan { get; set; }
-        public string Ten { get; set; }
+        public string TenNhanVien { get; set; }
         public string TenTaiKhoan { get; set; }
         public string MatKhau { get; set; }
         public int MaVaiTro { get; set; }

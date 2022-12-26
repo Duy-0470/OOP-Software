@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CamDo.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace CamDo.UC.UCView
         public SearchWindow()
         {
             InitializeComponent();
-            this.DataContext = new SearchWindow();
+            this.DataContext = new SearchWindowModel();
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

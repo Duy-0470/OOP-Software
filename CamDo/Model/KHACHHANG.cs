@@ -17,15 +17,15 @@ namespace CamDo.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACHHANG()
         {
-            this.HOADONs = new HashSet<HOADON>();
+            this.HOADON = new HashSet<HOADON>();
         }
     
         public int MaKhachHang { get; set; }
-        public string Ten { get; set; }
+        public string TenKhachHang { get; set; }
         public string SDT { get; set; }
         public string CMND { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
+        public virtual ICollection<HOADON> HOADON { get; set; }
     }
 }

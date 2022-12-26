@@ -60,7 +60,7 @@ namespace CamDo.ViewModel
                     UpdateVisibility = Visibility.Visible;
                 }
 
-                #region
+                #region  
                 //Isloaded = true;
                 //if (p == null)
                 //    return;

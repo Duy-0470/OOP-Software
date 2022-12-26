@@ -18,7 +18,7 @@ namespace CamDo.Model
         public HOADON()
         {
             this.CT_HOADON = new HashSet<CT_HOADON>();
-            this.THUTIENs = new HashSet<THUTIEN>();
+            this.THUTIEN = new HashSet<THUTIEN>();
         }
     
         public int MaHoaDon { get; set; }
@@ -29,6 +29,6 @@ namespace CamDo.Model
         public virtual ICollection<CT_HOADON> CT_HOADON { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THUTIEN> THUTIENs { get; set; }
+        public virtual ICollection<THUTIEN> THUTIEN { get; set; }
     }
 }

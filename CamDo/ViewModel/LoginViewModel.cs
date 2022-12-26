@@ -45,7 +45,7 @@ namespace CamDo.ViewModel
             if (p == null)
                 return;
 
-            TAIKHOAN user = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == Username && x.MatKhau == Password).FirstOrDefault();
+            TAIKHOAN user = DataProvider.Ins.DB.TAIKHOAN.Where(x => x.TenTaiKhoan == Username && x.MatKhau == Password).FirstOrDefault();
             if (user != null)
             {
                 MainViewModel.User = user;

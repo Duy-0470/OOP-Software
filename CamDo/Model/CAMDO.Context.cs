@@ -25,13 +25,13 @@ namespace CamDo.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BAOCAODOANHSO> BAOCAODOANHSOes { get; set; }
+        public virtual DbSet<BAOCAODOANHSO> BAOCAODOANHSO { get; set; }
         public virtual DbSet<CT_BCDS> CT_BCDS { get; set; }
         public virtual DbSet<CT_HOADON> CT_HOADON { get; set; }
-        public virtual DbSet<HOADON> HOADONs { get; set; }
-        public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
-        public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
-        public virtual DbSet<THUTIEN> THUTIENs { get; set; }
-        public virtual DbSet<VAITRO> VAITROes { get; set; }
+        public virtual DbSet<HOADON> HOADON { get; set; }
+        public virtual DbSet<KHACHHANG> KHACHHANG { get; set; }
+        public virtual DbSet<TAIKHOAN> TAIKHOAN { get; set; }
+        public virtual DbSet<THUTIEN> THUTIEN { get; set; }
+        public virtual DbSet<VAITRO> VAITRO { get; set; }
     }
 }

@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="57f1099909be4adb83396ed3a23e89c5" Name="Diagram1">
+      <Diagram DiagramId="5566b7f8810f4fe0a62cc3ba48b09033" Name="Diagram1">
         <EntityTypeShape EntityType="CAMDOModel.BAOCAODOANHSO" Width="1.5" PointX="0.75" PointY="8" />
         <EntityTypeShape EntityType="CAMDOModel.CT_BCDS" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="CAMDOModel.CT_HOADON" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="CAMDOModel.HOADON" Width="1.5" PointX="3" PointY="2.5" />
-        <EntityTypeShape EntityType="CAMDOModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="CAMDOModel.CT_HOADON" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="CAMDOModel.HOADON" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="CAMDOModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="2.875" />
         <EntityTypeShape EntityType="CAMDOModel.TAIKHOAN" Width="1.5" PointX="10" PointY="0.875" />
-        <EntityTypeShape EntityType="CAMDOModel.THUTIEN" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="CAMDOModel.THUTIEN" Width="1.5" PointX="5.25" PointY="4.625" />
         <EntityTypeShape EntityType="CAMDOModel.VAITRO" Width="1.5" PointX="7.75" PointY="1.25" />
         <AssociationConnector Association="CAMDOModel.FK__CT_BCDS__TiLe__35BCFE0A" />
-        <AssociationConnector Association="CAMDOModel.FK__CT_HOADON__LaiSu__2E1BDC42" />
+        <AssociationConnector Association="CAMDOModel.FK__CT_HOADON__HanCh__2E1BDC42" />
         <AssociationConnector Association="CAMDOModel.FK__HOADON__Ngay__2B3F6F97" />
         <AssociationConnector Association="CAMDOModel.FK__THUTIEN__SoTienT__38996AB5" />
         <AssociationConnector Association="CAMDOModel.FK__TAIKHOAN__MaVaiT__267ABA7A" />

@@ -78,15 +78,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateAccountWindow.xaml.cs">
+      <DependentUpon>CreateAccountWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\AccountNumbericalOrder.cs" />
+    <Compile Include="Model\AddPawn.cs" />
     <Compile Include="Model\BAOCAODOANHSO.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\BillNumbericalOrder.cs" />
     <Compile Include="Model\CAMDO.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,6 +108,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CAMDO.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\CreateAccountViewModel.cs" />
     <Compile Include="Model\CT_BCDS.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
@@ -115,6 +122,8 @@
     <Compile Include="Model\KHACHHANG.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ObjectNumbericalOrder.cs" />
+    <Compile Include="Model\ShowAccountListViewModel.cs" />
     <Compile Include="Model\TAIKHOAN.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
@@ -123,6 +132,9 @@
     </Compile>
     <Compile Include="Model\VAITRO.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAccountListWindow.xaml.cs">
+      <DependentUpon>ShowAccountListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\SwitchViewClass\SwitchViewCustomer.cs" />
     <Compile Include="UC\SwitchViewClass\SwitchViewExpense.cs" />
@@ -156,13 +168,19 @@
       <DependentUpon>Temporary.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModel\PawnViewModel.cs" />
     <Compile Include="ViewModel\SearchWindowModel.cs" />
+    <Page Include="CreateAccountWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ResourceXAML\SwitchViewUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowAccountListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
