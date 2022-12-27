@@ -47,38 +47,6 @@
                                       Margin="0,0,0,0"
                                       Width="280">
 
-                        <TextBlock Text="Tên khách hàng: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                    </Grid>
-
-                    <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                        <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 />
-
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
                         <TextBlock Text="Mã hóa đơn: "
                                                HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
@@ -95,12 +63,80 @@
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Bottom"
                                  FontSize="20"
+                                 Text="{Binding BillID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                 IsEnabled="False"
+                                 />
+
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0"
+                                      HorizontalAlignment="Left"
+                                      Margin="0,0,0,0"
+                                      Width="280">
+
+                        <TextBlock Text="Tên khách hàng: "
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Grid.Column="1"
+                                      HorizontalAlignment="Right"
+                                      Margin="10"
+                                      Width="260">
+
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                  />
 
                     </Grid>
                 </Grid>
 
                 <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0"
+                                      HorizontalAlignment="Left"
+                                      Margin="0,0,0,0"
+                                      Width="280">
+
+                        <TextBlock Text="Tên món hàng: "
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Grid.Column="1"
+                                      HorizontalAlignment="Right"
+                                      Margin="10"
+                                      Width="260">
+
+                        <TextBox Width="260"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 Text="{Binding PawnName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                 />
+
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -127,70 +163,7 @@
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Bottom"
                                  FontSize="20"
-                                 />
-
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                        <TextBlock Text="Số lượng: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                    </Grid>
-
-                    <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                        <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 />
-
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                   <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                        <TextBlock Text="Lợi nhuận: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                    </Grid>
-
-                    <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                        <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
+                                 Text="{Binding PriceInput, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                                  />
 
                     </Grid>
@@ -221,7 +194,7 @@
                                       Margin="0,0,0,0"
                                       Width="280">
 
-                        <TextBlock Text="CMND: "
+                        <TextBlock Text="Mã khách hàng: "
                                                HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
@@ -235,6 +208,9 @@
 
                         <TextBox Width="260"
                                  HorizontalAlignment="Left"
+                                 VerticalAlignment="Bottom"
+                                 FontSize="20"
+                                 Text="{Binding CustomerID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                  />
 
                     </Grid>
@@ -251,7 +227,39 @@
                                       Margin="0,0,0,0"
                                       Width="280">
 
-                        <TextBlock Text="Tên món hàng: "
+                        <TextBlock Text="Thời hạn: "
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Grid.Column="1"
+                                      HorizontalAlignment="Right"
+                                      Margin="10"
+                                      Width="260">
+
+                        <DatePicker Width="150"
+                                    Margin="0,0,0,0"
+                                    FontSize="20"
+                                    HorizontalAlignment="Left"
+                                    SelectedDate="{Binding InputDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0"
+                                      HorizontalAlignment="Left"
+                                      Margin="0,0,0,0"
+                                      Width="280">
+
+                        <TextBlock Text="Số lượng: "
                                                HorizontalAlignment="Right"
                                                VerticalAlignment="Center"
                                                FontSize="20"></TextBlock>
@@ -267,12 +275,12 @@
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Bottom"
                                  FontSize="20"
-                                 />
+                                 Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -299,38 +307,8 @@
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Bottom"
                                  FontSize="20"
+                                 Text="{Binding PriceOutput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                  />
-
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                        <TextBlock Text="Thời hạn: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                    </Grid>
-
-                    <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                        <DatePicker Width="150"
-                                    Margin="0,0,0,0"
-                                    FontSize="20"
-                                    HorizontalAlignment="Left"/>
 
                     </Grid>
                 </Grid>
@@ -429,14 +407,15 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Number}"></GridViewColumn>
-                                <GridViewColumn Header="Mã hóa đơn" DisplayMemberBinding="{Binding CT_HOADON.MaHoaDon}"></GridViewColumn>
-                                <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding }"></GridViewColumn>
-                                <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding }"></GridViewColumn>
-                                <GridViewColumn Header="Giá tiền cầm" DisplayMemberBinding="{Binding CT_HOADON.GiaThamDinh}"></GridViewColumn>
-                                <GridViewColumn Header="Giá tiền chuộc" DisplayMemberBinding="{Binding }"></GridViewColumn>
-                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding CT_HOADON.SoLuong}"></GridViewColumn>
-                                <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding }"></GridViewColumn>
-                                <GridViewColumn Header="Hạn chót" DisplayMemberBinding="{Binding HOADON.Ngay}"></GridViewColumn>
+                                <GridViewColumn Header="Mã HĐ" DisplayMemberBinding="{Binding MaHoaDon}"></GridViewColumn>
+                                <GridViewColumn Header="Mã KH" DisplayMemberBinding="{Binding MaKhachHang}"></GridViewColumn>
+                                <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding TenKhachHang}"></GridViewColumn>
+                                <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding CMND}"></GridViewColumn>
+                                <GridViewColumn Header="Giá tiền cầm" DisplayMemberBinding="{Binding TienCam}"></GridViewColumn>
+                                <GridViewColumn Header="Giá tiền chuộc" DisplayMemberBinding="{Binding TienChuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}"></GridViewColumn>
+                                <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding ThanhTien}"></GridViewColumn>
+                                <GridViewColumn Header="Hạn chót" DisplayMemberBinding="{Binding HanChot}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

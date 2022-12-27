@@ -40,14 +40,14 @@
             <PropertyRef Name="MaHoaDon" />
           </Key>
           <Property Name="MaHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaKhachHang" Type="int" Nullable="false" />
-          <Property Name="Ngay" Type="datetime" />
+          <Property Name="MaKhachHang" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ngay" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
             <PropertyRef Name="MaKhachHang" />
           </Key>
-          <Property Name="MaKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaKhachHang" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="TenKhachHang" Type="nvarchar(max)" />
           <Property Name="SDT" Type="nvarchar" MaxLength="20" />
           <Property Name="CMND" Type="nvarchar" MaxLength="12" />
@@ -240,8 +240,8 @@
             <PropertyRef Name="MaHoaDon" />
           </Key>
           <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaKhachHang" Type="Int32" Nullable="false" />
-          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <Property Name="MaKhachHang" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay" Type="DateTime" Precision="0" />
           <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__HanCh__2E1BDC42" FromRole="HOADON" ToRole="CT_HOADON" />
           <NavigationProperty Name="KHACHHANG" Relationship="CAMDOModel.FK__HOADON__Ngay__2B3F6F97" FromRole="HOADON" ToRole="KHACHHANG" />
           <NavigationProperty Name="THUTIEN" Relationship="CAMDOModel.FK__THUTIEN__SoTienT__38996AB5" FromRole="HOADON" ToRole="THUTIEN" />
@@ -250,7 +250,7 @@
           <Key>
             <PropertyRef Name="MaKhachHang" />
           </Key>
-          <Property Name="MaKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaKhachHang" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="TenKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="CMND" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
@@ -345,7 +345,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

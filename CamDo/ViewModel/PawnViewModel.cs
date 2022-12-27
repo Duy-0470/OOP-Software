@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,19 +43,30 @@ namespace CamDo.ViewModel
             get { return billID; }
             set { billID = value; OnPropertyChanged(nameof(BillID)); }
         }
+        public int billIDtemp;
 
-        private string priceInput;
-        public string PriceInput
+        private string customerID;
+        public string CustomerID
         {
-            get { return priceInput; }
-            set { priceInput = value; OnPropertyChanged(nameof(PriceInput)); }
+            get { return customerID; }
+            set { customerID = value;
+                OnPropertyChanged(nameof(CustomerID)); }
         }
 
-        private string priceOutputRecommended;
-        public string PriceOutputRecommended
+        private decimal priceInput;
+        public decimal PriceInput
         {
-            get { return priceOutputRecommended; }
-            set { priceOutputRecommended = value; OnPropertyChanged(nameof(PriceOutputRecommended)); }
+            get { return priceInput; }
+            set { priceInput = value; OnPropertyChanged(nameof(PriceInput));
+                PriceOutput = ( (decimal)1.05 * priceInput);
+            }
+        }
+
+        private decimal priceOutput;
+        public decimal PriceOutput
+        {
+            get { return priceOutput; }
+            set { priceOutput = value; OnPropertyChanged(nameof(PriceOutput)); }
         }
 
         private string amount;
@@ -89,12 +101,13 @@ namespace CamDo.ViewModel
                 if (SelectedItem != null)
                 {
                     PawnName = SelectedItem.TenVatTu;
-                    PriceInput = Convert.ToInt32(SelectedItem.TienCam).ToString();
-                    PriceOutputRecommended = Convert.ToInt32(SelectedItem.TienChuoc).ToString();
+                    PriceInput = SelectedItem.TienCam;
                     Amount = SelectedItem.SoLuong.ToString();
                     CustomerName = SelectedItem.TenKhachHang;
                     iD = SelectedItem.CMND;
                     inputDate = SelectedItem.HanChot;
+                    billID = SelectedItem.MaHoaDon;
+                    customerID = SelectedItem.MaKhachHang;
                 }
             }
         }
@@ -115,9 +128,11 @@ namespace CamDo.ViewModel
         {
             Refresh();
 
+            BillID = DataProvider.Ins.DB.HOADON.OrderByDescending(x => x.MaHoaDon).Select(x => x.MaHoaDon).FirstOrDefault();
+            
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(PawnName) || string.IsNullOrEmpty(PriceInput) || string.IsNullOrEmpty(Amount))
+                if (string.IsNullOrEmpty(PawnName) || string.IsNullOrEmpty(PriceInput.ToString()) || string.IsNullOrEmpty(Amount) || string.IsNullOrEmpty(CustomerName) || string.IsNullOrEmpty(CustomerID) || string.IsNullOrEmpty(InputDate.ToString()))
                     return false;
                 if (CheckValidNumber() == false)
                     return false;
@@ -130,44 +145,51 @@ namespace CamDo.ViewModel
                 AddPawn addPawn = new AddPawn();
                 addPawn.Number = number;
                 addPawn.TenVatTu = PawnName.Trim();
-                addPawn.TienCam = Convert.ToDecimal(PriceInput);
-                addPawn.TienChuoc = addPawn.TienCam * (decimal)(5 / 100);
+                addPawn.MaHoaDon = BillID;
+                addPawn.MaKhachHang = CustomerID;
+                addPawn.TienCam = PriceInput;
+                addPawn.TienChuoc = PriceOutput;
                 addPawn.SoLuong = Convert.ToInt32(Amount);
                 addPawn.ThanhTien = addPawn.TienChuoc * addPawn.SoLuong;
                 addPawn.CMND = ID;
                 addPawn.TenKhachHang = CustomerName;
                 addPawn.HanChot = (DateTime)inputDate;
                 InputList.Add(addPawn);
-                PawnName = PriceInput = PriceOutputRecommended = Amount = "";
+                PawnName = Amount = "";
+                PriceInput = 0;
                 number++;
                 UpdateTotalMoney();
             });
 
-            //    EditCommand = new RelayCommand<object>((p) =>
-            //    {
-            //        if (SelectedItem == null)
-            //            return false;
-            //        if (CheckValidNumber() == false)
-            //            return false;
-            //        return true;
-            //    }, (p) =>
-            //    {
-            //        foreach (var item in InputList)
-            //        {
-            //            if (item == SelectedItem)
-            //            {
-            //                item.TenVatTu = PawnName;
-            //                item.TienCam = Convert.ToDecimal(PriceInput);
-            //                item.TienChuoc = item.TienCam * (decimal)(1 + percentage);
-            //                item.SoLuong = Convert.ToInt32(Amount);
-            //                item.ThanhTien = item.TienCam * item.SoLuong;
-            //                SelectedItem = item;
-            //                break;
-            //            }
-            //        }
-            //        PawnName = PriceInput = PriceOutputRecommended = Amount = "";
-            //        UpdateTotalMoney();
-            //    });
+            EditCommand = new RelayCommand<object>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                if (CheckValidNumber() == false)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                foreach (var item in InputList)
+                {
+                    if (item == SelectedItem)
+                    {
+                        item.TenVatTu = PawnName;
+                        item.CMND = ID;
+                        item.HanChot = (DateTime)inputDate;
+                        item.MaKhachHang = CustomerID;
+                        item.TenKhachHang = CustomerName;
+                        item.TienCam = Convert.ToDecimal(PriceInput);
+                        item.SoLuong = Convert.ToInt32(Amount);
+                        item.ThanhTien = item.TienCam * item.SoLuong;
+                        SelectedItem = item;
+                        break;
+                    }
+                }
+                PawnName =  Amount = "";
+                PriceInput = 0;
+                UpdateTotalMoney();
+            });
 
             DeleteCommand = new RelayCommand<object>((p) =>
             {
@@ -191,7 +213,8 @@ namespace CamDo.ViewModel
                     item.Number = i;
                     i++;
                 }
-                PawnName = PriceInput = PriceOutputRecommended = Amount = ID = CustomerName = "";
+                PawnName  = Amount = ID = CustomerName = "";
+                PriceInput = 0;
                 UpdateTotalMoney();
             });
 
@@ -204,7 +227,7 @@ namespace CamDo.ViewModel
             //    }, (p) =>
             //    {
             //        SelectedItem = null;
-            //        PawnName = PriceInput = PriceOutputRecommended = Amount = "";
+            //        PawnName = PriceInput = PriceOutput = Amount = "";
             //    });
             #endregion
 
@@ -216,7 +239,14 @@ namespace CamDo.ViewModel
             }, (p) =>
             {
                 List<CT_HOADON> detailList = new List<CT_HOADON>();
-                HOADON hoadon = new HOADON() { Ngay = InputDate  /*, ThanhTien = TotalMoney*/ };
+                HOADON hoadon = new HOADON() { Ngay = DateTime.Now, MaHoaDon = BillID, MaKhachHang = CustomerID };
+                List<HOADON> tempoo = DataProvider.Ins.DB.HOADON.ToList();
+                foreach (var item in tempoo)
+                {
+                    List<HOADON> temp = DataProvider.Ins.DB.HOADON.Where(x => x.MaHoaDon == item.MaHoaDon).ToList();
+                    billIDtemp = item.MaHoaDon;
+                }
+                
                 DataProvider.Ins.DB.HOADON.Add(hoadon);
                 DataProvider.Ins.DB.SaveChanges();
 
@@ -228,9 +258,10 @@ namespace CamDo.ViewModel
                     {
                         MaHoaDon = BillID,
                         GiaCam = (int?)item.TienCam,
-                        LaiSuat = 5 / 100,
                         SoLuong = item.SoLuong,
-                        //ThanhTien = item.ThanhTien
+                        GiaChuoc = (int?)item.TienChuoc,
+                        TenVatTu = item.TenVatTu,
+                        HanChot = item.HanChot
                         
                         };
                         detailList.Add(ct_hoadon);
@@ -263,7 +294,7 @@ namespace CamDo.ViewModel
 
         private bool CheckValidNumber()
         {
-            if (Decimal.TryParse(PriceInput, out _) == false || Int32.TryParse(Amount, out _) == false)
+            if (Decimal.TryParse(PriceInput.ToString(), out _) == false || Int32.TryParse(Amount, out _) == false)
                 return false;
             if (Convert.ToDecimal(PriceInput) <= 0 || Convert.ToInt32(Amount) <= 0)
                 return false;

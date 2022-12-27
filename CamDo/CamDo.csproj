@@ -123,6 +123,7 @@
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ObjectNumbericalOrder.cs" />
+    <Compile Include="Model\ReceiveNumbericalOrder.cs" />
     <Compile Include="Model\ShowAccountListViewModel.cs" />
     <Compile Include="Model\TAIKHOAN.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
@@ -168,6 +169,7 @@
       <DependentUpon>Temporary.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

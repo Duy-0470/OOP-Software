@@ -20,7 +20,7 @@ namespace CamDo.Model
             this.HOADON = new HashSet<HOADON>();
         }
     
-        public int MaKhachHang { get; set; }
+        public string MaKhachHang { get; set; }
         public string TenKhachHang { get; set; }
         public string SDT { get; set; }
         public string CMND { get; set; }

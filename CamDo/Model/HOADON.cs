@@ -22,7 +22,7 @@ namespace CamDo.Model
         }
     
         public int MaHoaDon { get; set; }
-        public int MaKhachHang { get; set; }
+        public string MaKhachHang { get; set; }
         public Nullable<System.DateTime> Ngay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

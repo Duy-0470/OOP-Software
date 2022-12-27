@@ -35,5 +35,11 @@ namespace CamDo.Model
 
         private DateTime hanChot;
         public DateTime HanChot { get => hanChot; set { hanChot = value; OnPropertyChanged(); } }
+
+        public int maHoaDon;
+        public int MaHoaDon { get => maHoaDon; set { maHoaDon = value; OnPropertyChanged(); }}
+
+        public string maKhachHang;
+        public string MaKhachHang { get => maKhachHang; set { maKhachHang = value; OnPropertyChanged(); } }
     }
 }
