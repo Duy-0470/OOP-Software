@@ -23,8 +23,8 @@
     <EntitySetMapping Name="CT_HOADON">
       <EntityTypeMapping TypeName="CAMDOModel.CT_HOADON">
         <MappingFragment StoreEntitySet="CT_HOADON">
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="HanChot" ColumnName="HanChot" />
-          <ScalarProperty Name="LaiSuat" ColumnName="LaiSuat" />
           <ScalarProperty Name="GiaChuoc" ColumnName="GiaChuoc" />
           <ScalarProperty Name="GiaCam" ColumnName="GiaCam" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />

@@ -123,6 +123,7 @@
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ObjectNumbericalOrder.cs" />
+    <Compile Include="Model\PayNumbericalOrder.cs" />
     <Compile Include="Model\ReceiveNumbericalOrder.cs" />
     <Compile Include="Model\ShowAccountListViewModel.cs" />
     <Compile Include="Model\TAIKHOAN.cs">
@@ -142,6 +143,7 @@
     <Compile Include="UC\SwitchViewClass\SwitchViewHome.cs" />
     <Compile Include="UC\SwitchViewClass\SwitchViewManagement.cs" />
     <Compile Include="UC\SwitchViewClass\SwitchViewPawn.cs" />
+    <Compile Include="UC\SwitchViewClass\SwitchViewPay.cs" />
     <Compile Include="UC\SwitchViewClass\SwitchViewRemind.cs" />
     <Compile Include="UC\SwitchViewClass\SwitchViewSearch.cs" />
     <Compile Include="UC\UCView\CustomerWindow.xaml.cs">
@@ -158,6 +160,9 @@
     </Compile>
     <Compile Include="UC\UCView\PawnWindow.xaml.cs">
       <DependentUpon>PawnWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCView\PayWindow.xaml.cs">
+      <DependentUpon>PayWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\UCView\RemindWindow.xaml.cs">
       <DependentUpon>RemindWindow.xaml</DependentUpon>
@@ -178,6 +183,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\PawnViewModel.cs" />
+    <Compile Include="ViewModel\PayViewModel.cs" />
     <Compile Include="ViewModel\SearchWindowModel.cs" />
     <Page Include="CreateAccountWindow.xaml">
       <SubType>Designer</SubType>
@@ -220,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UC\UCView\PawnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCView\PayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,6 +299,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Picture\Rose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\Pay.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\CAMDO.Context.tt">

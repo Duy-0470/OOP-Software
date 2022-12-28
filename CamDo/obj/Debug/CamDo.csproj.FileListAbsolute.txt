@@ -85,3 +85,5 @@ D:\School\OOP\OOP-Software\CamDo\obj\Debug\CreateAccountWindow.g.cs
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\ShowAccountListWindow.g.cs
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\ShowAccountListWindow.baml
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\CreateAccountWindow.baml
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\PayWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\PayWindow.baml

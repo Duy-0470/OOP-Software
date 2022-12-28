@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\School\OOP\OOP-Software\CamDo\App.xaml
-1416896467
+15-2131427214
 2-1044253089
-49-954977348
+53-375948648
 221107377274
-CreateAccountWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;ResourceXAML\SwitchViewUC.xaml;ShowAccountListWindow.xaml;UC\UCView\CustomerWindow.xaml;UC\UCView\ExpenseWindow.xaml;UC\UCView\HomeWindow.xaml;UC\UCView\ManagementWindow.xaml;UC\UCView\PawnWindow.xaml;UC\UCView\RemindWindow.xaml;UC\UCView\SearchWindow.xaml;UC\UCView\Temporary.xaml;
+CreateAccountWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;ResourceXAML\SwitchViewUC.xaml;ShowAccountListWindow.xaml;UC\UCView\CustomerWindow.xaml;UC\UCView\ExpenseWindow.xaml;UC\UCView\HomeWindow.xaml;UC\UCView\ManagementWindow.xaml;UC\UCView\PawnWindow.xaml;UC\UCView\PayWindow.xaml;UC\UCView\RemindWindow.xaml;UC\UCView\SearchWindow.xaml;UC\UCView\Temporary.xaml;
 
 False
 

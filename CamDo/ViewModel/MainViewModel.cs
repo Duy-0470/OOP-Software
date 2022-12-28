@@ -132,6 +132,11 @@ namespace CamDo.ViewModel
                             SelectedViewModel = new SwitchViewRemind();
                             break;
                         }
+                    case "Pay":
+                        {
+                            SelectedViewModel = new SwitchViewPay();
+                            break;
+                        }
                     default:
                         break;
                 }

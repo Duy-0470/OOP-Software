@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,14 @@ namespace CamDo.ViewModel
             }
         }
 
-        public string tenKH; 
+        private string tenKHtemp;
+        public string TenKHtemp
+        {
+            get { return tenKHtemp; }
+            set { tenKHtemp = value; OnPropertyChanged(); }
+        }
+
+        public string tenKH;
 
         private string inputedItem;
         public string InputedItem
@@ -82,6 +90,8 @@ namespace CamDo.ViewModel
                     ObjectNumbericalOrder objectNumbericalOrder = new ObjectNumbericalOrder();
                     objectNumbericalOrder.Number = i + 1;
                     objectNumbericalOrder.CT_HOADON = list[i];
+                    objectNumbericalOrder.TenKH = tenKH;
+                    objectNumbericalOrder.CT_HOADON.TongTien = objectNumbericalOrder.CT_HOADON.SoLuong * objectNumbericalOrder.CT_HOADON.GiaChuoc;
                     CTHoaDonList.Add(objectNumbericalOrder);
                 }
             }

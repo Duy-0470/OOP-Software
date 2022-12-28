@@ -39,8 +39,8 @@ CREATE TABLE CT_HOADON(
 	SoLuong INT,
 	GiaCam INT,
 	GiaChuoc INT,
-	LaiSuat INT,
-	HanChot SMALLDATETIME
+	HanChot SMALLDATETIME,
+	TongTien INT
 
 	FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon)
 )

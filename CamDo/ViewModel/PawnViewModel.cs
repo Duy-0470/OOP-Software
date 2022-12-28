@@ -128,7 +128,7 @@ namespace CamDo.ViewModel
         {
             Refresh();
 
-            BillID = DataProvider.Ins.DB.HOADON.OrderByDescending(x => x.MaHoaDon).Select(x => x.MaHoaDon).FirstOrDefault();
+            BillID = DataProvider.Ins.DB.HOADON.OrderByDescending(x => x.MaHoaDon).Select(x => x.MaHoaDon).FirstOrDefault() + 1;
             
             AddCommand = new RelayCommand<object>((p) =>
             {

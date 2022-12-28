@@ -38,6 +38,7 @@ namespace CamDo
                 tt_search.Visibility = Visibility.Collapsed;
                 tt_expense.Visibility = Visibility.Collapsed;
                 tt_customer.Visibility = Visibility.Collapsed;
+                tt_pay.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -47,6 +48,7 @@ namespace CamDo
                 tt_search.Visibility = Visibility.Visible;
                 tt_expense.Visibility = Visibility.Visible;
                 tt_customer.Visibility = Visibility.Visible;
+                tt_pay.Visibility= Visibility.Visible;
             }
         }
 

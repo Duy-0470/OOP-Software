@@ -32,8 +32,8 @@
           <Property Name="SoLuong" Type="int" />
           <Property Name="GiaCam" Type="int" />
           <Property Name="GiaChuoc" Type="int" />
-          <Property Name="LaiSuat" Type="int" />
           <Property Name="HanChot" Type="smalldatetime" />
+          <Property Name="TongTien" Type="int" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -90,7 +90,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_HOADON__HanCh__2E1BDC42">
+        <Association Name="FK__CT_HOADON__TongT__2E1BDC42">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
           <End Role="CT_HOADON" Type="Self.CT_HOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -151,7 +151,7 @@
             <End Role="BAOCAODOANHSO" EntitySet="BAOCAODOANHSO" />
             <End Role="CT_BCDS" EntitySet="CT_BCDS" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_HOADON__HanCh__2E1BDC42" Association="Self.FK__CT_HOADON__HanCh__2E1BDC42">
+          <AssociationSet Name="FK__CT_HOADON__TongT__2E1BDC42" Association="Self.FK__CT_HOADON__TongT__2E1BDC42">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CT_HOADON" EntitySet="CT_HOADON" />
           </AssociationSet>
@@ -185,7 +185,7 @@
             <End Role="BAOCAODOANHSO" EntitySet="BAOCAODOANHSO" />
             <End Role="CT_BCDS" EntitySet="CT_BCDS" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_HOADON__HanCh__2E1BDC42" Association="CAMDOModel.FK__CT_HOADON__HanCh__2E1BDC42">
+          <AssociationSet Name="FK__CT_HOADON__TongT__2E1BDC42" Association="CAMDOModel.FK__CT_HOADON__TongT__2E1BDC42">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CT_HOADON" EntitySet="CT_HOADON" />
           </AssociationSet>
@@ -231,9 +231,9 @@
           <Property Name="SoLuong" Type="Int32" />
           <Property Name="GiaCam" Type="Int32" />
           <Property Name="GiaChuoc" Type="Int32" />
-          <Property Name="LaiSuat" Type="Int32" />
           <Property Name="HanChot" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="HOADON" Relationship="CAMDOModel.FK__CT_HOADON__HanCh__2E1BDC42" FromRole="CT_HOADON" ToRole="HOADON" />
+          <Property Name="TongTien" Type="Int32" />
+          <NavigationProperty Name="HOADON" Relationship="CAMDOModel.FK__CT_HOADON__TongT__2E1BDC42" FromRole="CT_HOADON" ToRole="HOADON" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -242,7 +242,7 @@
           <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaKhachHang" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Ngay" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__HanCh__2E1BDC42" FromRole="HOADON" ToRole="CT_HOADON" />
+          <NavigationProperty Name="CT_HOADON" Relationship="CAMDOModel.FK__CT_HOADON__TongT__2E1BDC42" FromRole="HOADON" ToRole="CT_HOADON" />
           <NavigationProperty Name="KHACHHANG" Relationship="CAMDOModel.FK__HOADON__Ngay__2B3F6F97" FromRole="HOADON" ToRole="KHACHHANG" />
           <NavigationProperty Name="THUTIEN" Relationship="CAMDOModel.FK__THUTIEN__SoTienT__38996AB5" FromRole="HOADON" ToRole="THUTIEN" />
         </EntityType>
@@ -297,7 +297,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_HOADON__HanCh__2E1BDC42">
+        <Association Name="FK__CT_HOADON__TongT__2E1BDC42">
           <End Type="CAMDOModel.HOADON" Role="HOADON" Multiplicity="0..1" />
           <End Type="CAMDOModel.CT_HOADON" Role="CT_HOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -373,8 +373,8 @@
           <EntitySetMapping Name="CT_HOADON">
             <EntityTypeMapping TypeName="CAMDOModel.CT_HOADON">
               <MappingFragment StoreEntitySet="CT_HOADON">
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
                 <ScalarProperty Name="HanChot" ColumnName="HanChot" />
-                <ScalarProperty Name="LaiSuat" ColumnName="LaiSuat" />
                 <ScalarProperty Name="GiaChuoc" ColumnName="GiaChuoc" />
                 <ScalarProperty Name="GiaCam" ColumnName="GiaCam" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
