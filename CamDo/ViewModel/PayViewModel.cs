@@ -37,6 +37,12 @@ namespace CamDo.ViewModel
                 OnPropertyChanged();
             }
         }
+        private DateTime? selectedDate;
+        public DateTime? SelectedDate
+        {
+            get { return selectedDate; }
+            set { selectedDate = value; OnPropertyChanged(); }
+        }
         private string inputedItem;
         public string InputedItem
         {
@@ -64,9 +70,7 @@ namespace CamDo.ViewModel
         public ICommand ShowDataCommand { get; set; }
 
         public ICommand AddContentCommand { get; set; }
-        public ICommand EditContentCommand { get; set; }
         public ICommand DeleteContentCommand { get; set; }
-        public ICommand DeSelectedContentCommand { get; set; }
         public ICommand MakeReceiptCommand { get; set; }
         public ICommand RefreshCommand { get; set; }
 
@@ -74,6 +78,7 @@ namespace CamDo.ViewModel
         public PayViewModel()
         {
             ContentList = new ObservableCollection<ObjectNumbericalOrder>();
+            SelectedDate = DateTime.Now;
 
             ShowDataCommand = new RelayCommand<Button>((p) =>
             {
@@ -126,6 +131,46 @@ namespace CamDo.ViewModel
                 {
                     CTHoaDonList[i].Number = i +1;
                 }
+
+                for (int i = 0; i < ContentList.Count; i++)
+                {
+                    ContentList[i].Number = i + 1;
+                }
+            });
+
+            DeleteContentCommand = new RelayCommand<object>((p) =>
+            {
+                if (ContentList.Count() == 0)
+                    return false;
+                else return true;
+            }, (p) =>
+            {
+                if (ContentList.Count() == 0)
+                {
+                    MessageBox.Show("Không có vật tư bạn muốn xóa");
+                }
+
+                CTHoaDonList.Add(SelectedContent);
+                CTHoaDonList[contentID - 1].Number = contentID;
+                contentID = +1;
+                ContentList.Remove(SelectedContent);
+                SelectedContent = null;
+
+                for (int i = 0; i < ContentList.Count; i++)
+                {
+                    ContentList[i].Number = i + 1;
+                }
+
+                
+            });
+
+            RefreshCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                SelectedDate = DateTime.Now;
+                CTHoaDonList = new ObservableCollection<ObjectNumbericalOrder>();
+                ContentList = new ObservableCollection<ObjectNumbericalOrder>();
+                SelectedContent = null;
+                SelectedItem = null;
             });
         }
 

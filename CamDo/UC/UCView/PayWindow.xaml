@@ -103,8 +103,6 @@
                     </materialDesign:Card>
 
                     <WrapPanel HorizontalAlignment="Center" Grid.Row="1" Margin="0,10,0,0" >
-                        <Button Command="{Binding DeSelectedContentCommand}" Content="Bỏ chọn" Margin="5" Width="130"></Button>
-                        <Button Command="{Binding EditContentCommand}" Content="Sửa lựa chọn" Margin="5" Width="130"></Button>
                         <Button Command="{Binding DeleteContentCommand}" Content="Xóa lựa chọn" Margin="5" Width="130"></Button>
                         <Button Command="{Binding AddContentCommand}" Content="Thêm lựa chọn" Margin="5" Width="130"></Button>
                     </WrapPanel>
@@ -127,7 +125,7 @@
                     <RowDefinition />
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                
+
                 <materialDesign:Card Grid.Row="0" VerticalAlignment="Stretch">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                         <ListView ItemsSource="{Binding ContentList }" SelectedItem="{Binding SelectedContent, Mode=TwoWay}">
@@ -143,7 +141,7 @@
                         </ListView>
                     </ScrollViewer>
                 </materialDesign:Card>
-                <WrapPanel HorizontalAlignment="Center" Grid.Row="1" Margin="0,10,0,0">
+                <WrapPanel HorizontalAlignment="Center" Grid.Row="2" Margin="0,10,0,0">
                     <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Width="200" Height="50" Content="Lập phiếu thu tiền" Margin="20" Command="{Binding }">
                     </Button>
