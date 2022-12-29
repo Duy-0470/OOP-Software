@@ -28,6 +28,7 @@ namespace CamDo.Model
         public virtual DbSet<BAOCAODOANHSO> BAOCAODOANHSO { get; set; }
         public virtual DbSet<CT_BCDS> CT_BCDS { get; set; }
         public virtual DbSet<CT_HOADON> CT_HOADON { get; set; }
+        public virtual DbSet<CT_THUTIEN> CT_THUTIEN { get; set; }
         public virtual DbSet<HOADON> HOADON { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANG { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOAN { get; set; }

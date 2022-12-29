@@ -120,6 +120,9 @@
     <Compile Include="Model\CT_HOADON.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CT_THUTIEN.cs">
+      <DependentUpon>CAMDO.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\HOADON.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>

@@ -19,6 +19,6 @@ namespace CamDo.Model
 
         public string TenKH { get; set; }
         public string CMND { get; set; }
-
+        public string AmountTemp { get; set; }
     }
 }

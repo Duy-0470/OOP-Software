@@ -14,11 +14,19 @@ namespace CamDo.Model
     
     public partial class THUTIEN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public THUTIEN()
+        {
+            this.CT_THUTIEN = new HashSet<CT_THUTIEN>();
+        }
+    
         public int MaThuTien { get; set; }
         public Nullable<int> MaHoaDon { get; set; }
         public Nullable<System.DateTime> NgayThuTien { get; set; }
         public Nullable<int> SoTienThu { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_THUTIEN> CT_THUTIEN { get; set; }
         public virtual HOADON HOADON { get; set; }
     }
 }

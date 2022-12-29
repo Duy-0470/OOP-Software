@@ -37,9 +37,9 @@
             </Grid.Background>
             
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
 
             </Grid.RowDefinitions>
 
@@ -53,7 +53,6 @@
                 </GroupBox.Background>
 
                 <WrapPanel>
-
                     <WrapPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#f5c1c1" Offset="0.2"/>
@@ -68,7 +67,7 @@
                                 Text="{Binding InputedItem, UpdateSourceTrigger=PropertyChanged}"
                               />
                     <DatePicker Width="100" materialDesign:HintAssist.Hint="Ngày lập" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding SelectedDate, StringFormat='dd/MM/yyyy'}"/>
-                    <TextBox Text="{Binding TotalMoney, StringFormat='#,0'}" IsReadOnly="True" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tổng thành tiền" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Width="auto" Text="{Binding TotalMoney, StringFormat='#,0'}" IsReadOnly="True" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tiền thu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <Button x:Name="btnSearch" Grid.Row="2"
                             Content="Tìm kiếm"
                             FontSize="15" 
@@ -101,14 +100,16 @@
                             </ListView>
                         </ScrollViewer>
                     </materialDesign:Card>
-
-                    <WrapPanel HorizontalAlignment="Center" Grid.Row="1" Margin="0,10,0,0" >
-                        <Button Command="{Binding DeleteContentCommand}" Content="Xóa lựa chọn" Margin="5" Width="130"></Button>
-                        <Button Command="{Binding AddContentCommand}" Content="Thêm lựa chọn" Margin="5" Width="130"></Button>
-                    </WrapPanel>
-
+                    
                 </Grid>
             </GroupBox>
+
+            <WrapPanel HorizontalAlignment="Center" Grid.Row="3" Margin="0,10,0,0" VerticalAlignment="Center">
+                
+                <Button Command="{Binding DeleteContentCommand}" Content="Xóa lựa chọn" Margin="0,0,10,10" Width="130"></Button>
+                <Button Command="{Binding AddContentCommand}" Content="Thêm lựa chọn" Margin="0,0,10,10" Width="130"></Button>
+            </WrapPanel>
+
         </Grid>
 
         <GroupBox Grid.Column="1" Header="Danh sách phiếu thu tiền" Style="{StaticResource MaterialDesignGroupBox}" Margin="5" UseLayoutRounding="True">
@@ -143,10 +144,10 @@
                 </materialDesign:Card>
                 <WrapPanel HorizontalAlignment="Center" Grid.Row="2" Margin="0,10,0,0">
                     <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                        Width="200" Height="50" Content="Lập phiếu thu tiền" Margin="20" Command="{Binding }">
+                        Width="200" Height="50" Content="Lập phiếu thu tiền" Margin="20" Command="{Binding MakeReceiptCommand}">
                     </Button>
                     <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Right"
-                        Width="200" Height="50" Content="Làm mới phiếu thu tiền" Margin="20" Command="{Binding }">
+                        Width="200" Height="50" Content="Làm mới phiếu thu tiền" Margin="20" Command="{Binding RefreshCommand}">
                     </Button>
                 </WrapPanel>
 

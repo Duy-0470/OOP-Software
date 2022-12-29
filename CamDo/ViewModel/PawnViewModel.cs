@@ -153,7 +153,6 @@ namespace CamDo.ViewModel
                 addPawn.TienChuoc = PriceOutput;
                 addPawn.SoLuong = Convert.ToInt32(Amount);
                 addPawn.ThanhTien = addPawn.TienChuoc * addPawn.SoLuong;
-                //addPawn.CMND = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == CustomerID).Select(x => x.CMND).ToString();
                 addPawn.TenKhachHang = CustomerName;
                 addPawn.HanChot = (DateTime)inputDate;
                 InputList.Add(addPawn);
@@ -260,7 +259,8 @@ namespace CamDo.ViewModel
                         SoLuong = item.SoLuong,
                         GiaChuoc = (int?)item.TienChuoc,
                         TenVatTu = item.TenVatTu,
-                        HanChot = item.HanChot
+                        HanChot = item.HanChot,
+                        TongTien = (int?)item.ThanhTien
                         
                         };
                         detailList.Add(ct_hoadon);

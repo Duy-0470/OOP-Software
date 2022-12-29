@@ -34,6 +34,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CT_THUTIEN">
+      <EntityTypeMapping TypeName="CAMDOModel.CT_THUTIEN">
+        <MappingFragment StoreEntitySet="CT_THUTIEN">
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="GiaChuoc" ColumnName="GiaChuoc" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="TenVatTu" ColumnName="TenVatTu" />
+          <ScalarProperty Name="MaThuTien" ColumnName="MaThuTien" />
+          <ScalarProperty Name="MaCT_ThuTien" ColumnName="MaCT_ThuTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="HOADON">
       <EntityTypeMapping TypeName="CAMDOModel.HOADON">
         <MappingFragment StoreEntitySet="HOADON">

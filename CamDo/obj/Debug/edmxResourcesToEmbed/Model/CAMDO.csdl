@@ -4,6 +4,7 @@
     <EntitySet Name="BAOCAODOANHSO" EntityType="CAMDOModel.BAOCAODOANHSO" />
     <EntitySet Name="CT_BCDS" EntityType="CAMDOModel.CT_BCDS" />
     <EntitySet Name="CT_HOADON" EntityType="CAMDOModel.CT_HOADON" />
+    <EntitySet Name="CT_THUTIEN" EntityType="CAMDOModel.CT_THUTIEN" />
     <EntitySet Name="HOADON" EntityType="CAMDOModel.HOADON" />
     <EntitySet Name="KHACHHANG" EntityType="CAMDOModel.KHACHHANG" />
     <EntitySet Name="TAIKHOAN" EntityType="CAMDOModel.TAIKHOAN" />
@@ -16,6 +17,10 @@
     <AssociationSet Name="FK__CT_HOADON__TongT__2E1BDC42" Association="CAMDOModel.FK__CT_HOADON__TongT__2E1BDC42">
       <End Role="HOADON" EntitySet="HOADON" />
       <End Role="CT_HOADON" EntitySet="CT_HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_THUTIE__GiaCh__3B75D760" Association="CAMDOModel.FK__CT_THUTIE__GiaCh__3B75D760">
+      <End Role="THUTIEN" EntitySet="THUTIEN" />
+      <End Role="CT_THUTIEN" EntitySet="CT_THUTIEN" />
     </AssociationSet>
     <AssociationSet Name="FK__HOADON__Ngay__2B3F6F97" Association="CAMDOModel.FK__HOADON__Ngay__2B3F6F97">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
@@ -63,6 +68,18 @@
     <Property Name="TongTien" Type="Int32" />
     <NavigationProperty Name="HOADON" Relationship="CAMDOModel.FK__CT_HOADON__TongT__2E1BDC42" FromRole="CT_HOADON" ToRole="HOADON" />
   </EntityType>
+  <EntityType Name="CT_THUTIEN">
+    <Key>
+      <PropertyRef Name="MaCT_ThuTien" />
+    </Key>
+    <Property Name="MaCT_ThuTien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaThuTien" Type="Int32" />
+    <Property Name="TenVatTu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="GiaChuoc" Type="Int32" />
+    <Property Name="ThanhTien" Type="Int32" />
+    <NavigationProperty Name="THUTIEN" Relationship="CAMDOModel.FK__CT_THUTIE__GiaCh__3B75D760" FromRole="CT_THUTIEN" ToRole="THUTIEN" />
+  </EntityType>
   <EntityType Name="HOADON">
     <Key>
       <PropertyRef Name="MaHoaDon" />
@@ -103,6 +120,7 @@
     <Property Name="MaHoaDon" Type="Int32" />
     <Property Name="NgayThuTien" Type="DateTime" Precision="0" />
     <Property Name="SoTienThu" Type="Int32" />
+    <NavigationProperty Name="CT_THUTIEN" Relationship="CAMDOModel.FK__CT_THUTIE__GiaCh__3B75D760" FromRole="THUTIEN" ToRole="CT_THUTIEN" />
     <NavigationProperty Name="HOADON" Relationship="CAMDOModel.FK__THUTIEN__SoTienT__38996AB5" FromRole="THUTIEN" ToRole="HOADON" />
   </EntityType>
   <EntityType Name="VAITRO">
@@ -134,6 +152,18 @@
       </Principal>
       <Dependent Role="CT_HOADON">
         <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_THUTIE__GiaCh__3B75D760">
+    <End Type="CAMDOModel.THUTIEN" Role="THUTIEN" Multiplicity="0..1" />
+    <End Type="CAMDOModel.CT_THUTIEN" Role="CT_THUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THUTIEN">
+        <PropertyRef Name="MaThuTien" />
+      </Principal>
+      <Dependent Role="CT_THUTIEN">
+        <PropertyRef Name="MaThuTien" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
