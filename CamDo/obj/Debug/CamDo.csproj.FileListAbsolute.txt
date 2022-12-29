@@ -82,8 +82,10 @@ D:\School\OOP\OOP-Software\CamDo\obj\Debug\CamDo_Content.g.cs
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\Temporary.g.cs
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\Temporary.baml
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\CreateAccountWindow.g.cs
-D:\School\OOP\OOP-Software\CamDo\obj\Debug\ShowAccountListWindow.g.cs
-D:\School\OOP\OOP-Software\CamDo\obj\Debug\ShowAccountListWindow.baml
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\CreateAccountWindow.baml
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\PayWindow.g.cs
 D:\School\OOP\OOP-Software\CamDo\obj\Debug\UC\UCView\PayWindow.baml
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\EditAccountWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\EditAccountWindow.baml
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\ChangePasswordWindow.g.cs
+D:\School\OOP\OOP-Software\CamDo\obj\Debug\ChangePasswordWindow.baml

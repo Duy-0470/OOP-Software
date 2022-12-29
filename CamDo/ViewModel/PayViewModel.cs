@@ -14,8 +14,11 @@ namespace CamDo.ViewModel
     public class PayViewModel: BaseViewModel
     {
         private int contentID = 1;
+        private int itemID = 0;
 
         public List<string> Option { get; set; }
+
+        
 
         private ObjectNumbericalOrder selectedItem;
         public ObjectNumbericalOrder SelectedItem
@@ -78,6 +81,7 @@ namespace CamDo.ViewModel
         public PayViewModel()
         {
             ContentList = new ObservableCollection<ObjectNumbericalOrder>();
+            CTHoaDonList = new ObservableCollection<ObjectNumbericalOrder>();
             SelectedDate = DateTime.Now;
 
             ShowDataCommand = new RelayCommand<Button>((p) =>
@@ -88,7 +92,6 @@ namespace CamDo.ViewModel
             }
             , (p) =>
             {
-                CTHoaDonList = new ObservableCollection<ObjectNumbericalOrder>();
                 List<CT_HOADON> list = new List<CT_HOADON>();
                 list = SearchByBill();
                 if (list.Count == 0)
@@ -101,6 +104,7 @@ namespace CamDo.ViewModel
                 {
                     ObjectNumbericalOrder objectNumbericalOrder = new ObjectNumbericalOrder();
                     objectNumbericalOrder.Number = i + 1;
+                    itemID = i + 1;
                     objectNumbericalOrder.CT_HOADON = list[i];
                     CTHoaDonList.Add(objectNumbericalOrder);
                 }
@@ -161,7 +165,12 @@ namespace CamDo.ViewModel
                     ContentList[i].Number = i + 1;
                 }
 
-                
+                for (int i = 0; i < CTHoaDonList.Count; i++)
+                {
+                    CTHoaDonList[i].Number = i + 1;
+                }
+
+
             });
 
             RefreshCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -171,6 +180,20 @@ namespace CamDo.ViewModel
                 ContentList = new ObservableCollection<ObjectNumbericalOrder>();
                 SelectedContent = null;
                 SelectedItem = null;
+            });
+
+            MakeReceiptCommand = new RelayCommand<object>((p) =>
+            {
+                if (ContentList.Count() == 0)
+                    return false;
+                else return true;
+            }, (p) =>
+            {
+                if (ContentList.Count() == 0)
+                {
+                    MessageBox.Show("Không có vật tư bạn muốn thanh toán");
+                }
+
             });
         }
 

@@ -89,7 +89,7 @@
                     <materialDesign:Card Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
                         <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Grid.Row="3"
                   Grid.ColumnSpan="2">
-                            <ListView ItemsSource="{Binding CTHoaDonList}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
+                            <ListView ItemsSource="{Binding CTHoaDonList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" >
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Number}"/>

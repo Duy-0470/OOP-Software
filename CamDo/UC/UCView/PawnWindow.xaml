@@ -11,493 +11,185 @@
              d:Background="Transparent">
     <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
         <StackPanel Orientation="Vertical">
 
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#f5c1c1" Offset="0.2"/>
+                    <GradientStop Color="#e7cfcf" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+
             <Grid>
-                
+                <Border>
+                    <GroupBox Background="White" Header="Tiếp nhận đơn" Style="{StaticResource MaterialDesignGroupBox}" Margin="16" UseLayoutRounding="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0">
+                                <TextBox Width="170" materialDesign:HintAssist.Hint="Mã hóa đơn"
+                                         Text="{Binding BillID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                         Foreground="Black"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         VerticalAlignment="Center"
+                                         IsEnabled="False"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <TextBox
+                                Width="170"
+                                Foreground="Black"
+                                materialDesign:HintAssist.Hint="Mã khách hàng"
+                                    IsEnabled="{Binding EditTextboxEnable}"
+                                    Text="{Binding CustomerID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                VerticalAlignment="Center" />
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1">
+                                <TextBox Width="170" materialDesign:HintAssist.Hint="Tên khách hàng"
+                                         Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                         Foreground="Black"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         VerticalAlignment="Center"
+                                         />
+
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <DatePicker Width="170"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Stretch" Foreground="Black"
+                                            materialDesign:HintAssist.Hint="Thời hạn"
+                                            SelectedDate="{Binding InputDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="2">
+                                <TextBox Width="170" Foreground="Black"
+                                         materialDesign:HintAssist.Hint="Tên hàng hóa"
+                                         Text="{Binding PawnName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         VerticalAlignment="Center"/>
+                            </Grid>
+                            <Grid Grid.Column="1"
+                                  Grid.Row="2">
+                                <TextBox Width="170" Foreground="Black"
+                                         materialDesign:HintAssist.Hint="Số lượng"
+                                         Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         VerticalAlignment="Center" />
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="3">
+                                <TextBox Width="170" Foreground="Black"
+                                         materialDesign:HintAssist.Hint="Giá tiền cầm"
+                                         Text="{Binding PriceInput, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         VerticalAlignment="Center" />
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="3">
+                                <TextBox Width="170" Foreground="Black"
+                                         materialDesign:HintAssist.Hint="Giá tiền chuộc"
+                                         Text="{Binding PriceOutput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         VerticalAlignment="Center" />
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Border>
+            </Grid>
+
+            <Grid Width="450" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    Content="Thêm"
+                    Command="{Binding AddCommand}"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="100"
+                    Command="{Binding DeleteCommand}"
+                    Content="Xóa"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Button 
+                        Content="Sửa" 
+                        Width="100"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{Binding EditCommand}">
+                    </Button>
+                </Grid>
+
             </Grid>
 
             <Grid>
-
+                <GroupBox
+                    Background="White"
+                    Header="Danh sách đơn"
+                    Style="{StaticResource MaterialDesignGroupBox}"
+                    Margin="10"
+                    UseLayoutRounding="True">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                        <ListView ItemsSource="{Binding InputList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Number}"></GridViewColumn>
+                                    <GridViewColumn Header="Mã HĐ" DisplayMemberBinding="{Binding MaHoaDon}"></GridViewColumn>
+                                    <GridViewColumn Header="Mã KH" DisplayMemberBinding="{Binding MaKhachHang}"></GridViewColumn>
+                                    <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding TenKhachHang}"></GridViewColumn>
+                                    <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding CMND}"></GridViewColumn>
+                                    <GridViewColumn Header="Giá tiền cầm" DisplayMemberBinding="{Binding TienCam}"></GridViewColumn>
+                                    <GridViewColumn Header="Giá tiền chuộc" DisplayMemberBinding="{Binding TienChuoc}"></GridViewColumn>
+                                    <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}"></GridViewColumn>
+                                    <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding ThanhTien}"></GridViewColumn>
+                                    <GridViewColumn Header="Hạn chót" DisplayMemberBinding="{Binding HanChot}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </ScrollViewer>
+                </GroupBox>
             </Grid>
 
-            <Grid>
+            <Grid Width="450">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="130"
+                    Content="Tạo hóa đơn"
+                    Command="{Binding AddBillList}"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Button
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="130"
+                     Command="{Binding RefreshCommand}"
+                    Content="Làm mới"/>
+                </Grid>
 
             </Grid>
 
         </StackPanel>
-        
-        <GroupBox Margin="10" Background="White">
 
-            <!--BEN TREN-->
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <!--BEN TRAI-->
-
-
-                <Grid Grid.Column="0"
-                  Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Mã hóa đơn: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 Text="{Binding BillID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                 IsEnabled="False"
-                                 />
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Tên khách hàng: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                 />
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Tên món hàng: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 Text="{Binding PawnName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                 />
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Giá tiền cầm: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 Text="{Binding PriceInput, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
-                                 />
-
-                        </Grid>
-                    </Grid>
-
-                </Grid>
-
-                <!--BEN PHAI-->
-
-                <Grid Grid.Column="1"
-                  Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Mã khách hàng: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 Text="{Binding CustomerID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                 />
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Thời hạn: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <DatePicker Width="150"
-                                    Margin="0,0,0,0"
-                                    FontSize="20"
-                                    HorizontalAlignment="Left"
-                                    SelectedDate="{Binding InputDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Số lượng: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                      HorizontalAlignment="Left"
-                                      Margin="0,0,0,0"
-                                      Width="280">
-
-                            <TextBlock Text="Giá tiền chuộc: "
-                                               HorizontalAlignment="Right"
-                                               VerticalAlignment="Center"
-                                               FontSize="20"></TextBlock>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      Margin="10"
-                                      Width="260">
-
-                            <TextBox Width="260"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Bottom"
-                                 FontSize="20"
-                                 Text="{Binding PriceOutput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                 />
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0"
-                                  Width="120"
-                                  Height="50"
-                                  HorizontalAlignment="Center"
-                          >
-
-                            <Button Content="Thêm"
-                                        Foreground="Black"
-                                        Height="40"
-                                Command="{Binding AddCommand}">
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                                        <GradientStop Color="#e7cfcf" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-
-                            </Button>
-
-                        </Grid>
-
-                        <Grid Grid.Column="1"
-                                  Width="120"
-                                  Height="50"
-                                  HorizontalAlignment="Center"
-                          >
-
-                            <Button Content="Xóa"
-                                        Foreground="Black"
-                                        Height="40"
-                                Command="{Binding DeleteCommand}">
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                                        <GradientStop Color="#e7cfcf" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-
-                            </Button>
-
-                        </Grid>
-
-                        <Grid Grid.Column="3"
-                                  Width="120"
-                                  Height="50"
-                                  HorizontalAlignment="Center"
-                          >
-
-                            <Button Content="Sửa"
-                                Foreground="Black"
-                                Height="40"
-                                 >
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                                        <GradientStop Color="#e7cfcf" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-
-                            </Button>
-
-                        </Grid>
-
-                    </Grid>
-
-                </Grid>
-
-            </Grid>
-        </GroupBox>
-        
-        <!--BEN DUOI-->
-        
-        <Grid Grid.Row="1"
-              Margin="0,10,0,0">
-
-            <!--BẢNG DỮ LIỆU-->
-            
-            <Grid.RowDefinitions>
-                <RowDefinition Height="4*"></RowDefinition>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <materialDesign:Card Grid.Row="0" VerticalAlignment="Stretch">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-                    <ListView ItemsSource="{Binding InputList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Number}"></GridViewColumn>
-                                <GridViewColumn Header="Mã HĐ" DisplayMemberBinding="{Binding MaHoaDon}"></GridViewColumn>
-                                <GridViewColumn Header="Mã KH" DisplayMemberBinding="{Binding MaKhachHang}"></GridViewColumn>
-                                <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding TenKhachHang}"></GridViewColumn>
-                                <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding CMND}"></GridViewColumn>
-                                <GridViewColumn Header="Giá tiền cầm" DisplayMemberBinding="{Binding TienCam}"></GridViewColumn>
-                                <GridViewColumn Header="Giá tiền chuộc" DisplayMemberBinding="{Binding TienChuoc}"></GridViewColumn>
-                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}"></GridViewColumn>
-                                <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding ThanhTien}"></GridViewColumn>
-                                <GridViewColumn Header="Hạn chót" DisplayMemberBinding="{Binding HanChot}"></GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </ScrollViewer>
-            </materialDesign:Card>
-            
-            <!--BUTTON-->
-            
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <!--TRÁI-->
-                
-                <Grid Grid.Column="2"
-                                  Width="120"
-                                  Height="50"
-                                  HorizontalAlignment="Center"
-                          >
-
-                    <Button Content="Tạo hóa đơn"
-                                        Foreground="Black"
-                                        Height="40"
-                            Command="{Binding AddBillList}">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                                <GradientStop Color="#e7cfcf" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-
-                    </Button>
-
-                </Grid>
-                
-                <!--PHẢI-->
-
-                <Grid Grid.Column="3"
-                                  Width="120"
-                                  Height="50"
-                                  HorizontalAlignment="Center"
-                          >
-
-                    <Button Content="Làm mới"
-                                        Foreground="Black"
-                                        Height="40"
-                            Command="{Binding RefreshCommand}">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                                <GradientStop Color="#e7cfcf" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-
-                    </Button>
-
-                </Grid>
-
-            </Grid>
-        </Grid>
-        
     </Grid>
 </UserControl>

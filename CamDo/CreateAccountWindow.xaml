@@ -70,8 +70,6 @@
 
                 <Grid Height="30"></Grid>
 
-                <!--<TextBox materialDesign:HintAssist.Hint="Email của nhân viên"
-                         Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>-->
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="13,0,0,0">
                 <Button 
@@ -85,14 +83,6 @@
                         FontSize="20" 
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Left">
-
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                            <GradientStop Color="#e7cfcf" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                    
                 </Button>
                     <Grid Width="50"></Grid>
                 <Button 
@@ -105,33 +95,11 @@
                         FontSize="20" 
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Right">
-                    
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                            <GradientStop Color="#e7cfcf" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                    
                 </Button>
             </StackPanel>
 
             <Grid Grid.Row="3" Height="60" Grid.ColumnSpan="2"></Grid>
-            <Button Grid.Row="4"
-                    Style="{StaticResource MaterialDesignRaisedButton}"
-                    Command="{Binding ShowAccountListCommand}"
-                    Content="Xem danh sách các tài khoản" 
-                    FontSize="20" 
-                    VerticalAlignment="Center" Grid.ColumnSpan="2">
-
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                        <GradientStop Color="#e7cfcf" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-
-            </Button>
+            
         </Grid>
 
     </Border>

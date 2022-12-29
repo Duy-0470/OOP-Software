@@ -78,8 +78,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreateAccountWindow.xaml.cs">
       <DependentUpon>CreateAccountWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccountWindow.xaml.cs">
+      <DependentUpon>EditAccountWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -108,7 +114,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CAMDO.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\CreateAccountViewModel.cs" />
     <Compile Include="Model\CT_BCDS.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
@@ -125,7 +130,6 @@
     <Compile Include="Model\ObjectNumbericalOrder.cs" />
     <Compile Include="Model\PayNumbericalOrder.cs" />
     <Compile Include="Model\ReceiveNumbericalOrder.cs" />
-    <Compile Include="Model\ShowAccountListViewModel.cs" />
     <Compile Include="Model\TAIKHOAN.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
     </Compile>
@@ -134,9 +138,6 @@
     </Compile>
     <Compile Include="Model\VAITRO.cs">
       <DependentUpon>CAMDO.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ShowAccountListWindow.xaml.cs">
-      <DependentUpon>ShowAccountListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\SwitchViewClass\SwitchViewCustomer.cs" />
     <Compile Include="UC\SwitchViewClass\SwitchViewExpense.cs" />
@@ -174,7 +175,10 @@
       <DependentUpon>Temporary.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModel\CreateAccountViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\EditAccountViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -185,7 +189,15 @@
     <Compile Include="ViewModel\PawnViewModel.cs" />
     <Compile Include="ViewModel\PayViewModel.cs" />
     <Compile Include="ViewModel\SearchWindowModel.cs" />
+    <Page Include="ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreateAccountWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditAccountWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,10 +214,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ResourceXAML\SwitchViewUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ShowAccountListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

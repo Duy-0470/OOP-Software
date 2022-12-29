@@ -4,14 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CamDo.UC.UCView"
-             
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              
              mc:Ignorable="d"
              Name="homeWindow"
              d:DesignHeight="590" d:DesignWidth="1200"
              d:Background="Transparent">
-    <Grid Background="Transparent">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=mainWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#f5c1c1" Offset="0.2"/>
+                <GradientStop Color="#e7cfcf" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -77,41 +92,44 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="1">
-                    <materialDesign:PopupBox
+
+                    <StackPanel>
+                        <materialDesign:PopupBox
                             HorizontalAlignment="Right" Margin="0,0,19.8,0"
                                                  PlacementMode="BottomAndAlignCentres">
-                        <materialDesign:PopupBox.ToggleContent>
-                            <materialDesign:PackIcon Kind="ArrowDownDropCircleOutline" Width="100" Height="50"
+                            <materialDesign:PopupBox.ToggleContent>
+                                <materialDesign:PackIcon Kind="ArrowDownDropCircleOutline" Width="100" Height="50"
                                                          Foreground="White" FontWeight="ExtraLight"></materialDesign:PackIcon>
 
-                        </materialDesign:PopupBox.ToggleContent>
+                            </materialDesign:PopupBox.ToggleContent>
 
-                        <StackPanel>
-                            <Button Command="{Binding OpenAccountInfoCommand}" Cursor="Hand">
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <materialDesign:PackIcon Kind="Account" Width="25" Height="auto"></materialDesign:PackIcon>
-                                    <TextBlock Margin="5 0 5 -4" VerticalAlignment="Center">Chỉnh sửa tài khoản</TextBlock>
-                                </StackPanel>
-                            </Button>
+                            <StackPanel>
+                                <Button Command="{Binding EditAccountInfoCommand}" Cursor="Hand">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <materialDesign:PackIcon Kind="Account" Width="25" Height="auto"></materialDesign:PackIcon>
+                                        <TextBlock Margin="5 0 5 -4" VerticalAlignment="Center">Chỉnh sửa tài khoản</TextBlock>
+                                    </StackPanel>
+                                </Button>
 
-                            <Button Command="{Binding CreateAccountCommand}" Cursor="Hand" Visibility="{Binding UpdateVisibility}">
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <materialDesign:PackIcon Kind="Information" Width="25" Height="auto"></materialDesign:PackIcon>
-                                    <TextBlock Margin="5 0 5 -4" VerticalAlignment="Center">Tạo tài khoản</TextBlock>
-                                </StackPanel>
-                            </Button>
+                                <Button Command="{Binding CreateAccountCommand}" Cursor="Hand" Visibility="{Binding UpdateVisibility}">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <materialDesign:PackIcon Kind="Information" Width="25" Height="auto"></materialDesign:PackIcon>
+                                        <TextBlock Margin="5 0 5 -4" VerticalAlignment="Center">Tạo tài khoản</TextBlock>
+                                    </StackPanel>
+                                </Button>
 
-                            <Button x:Name="btnLogin"
+                                <Button x:Name="btnLogin"
                                         Command="{Binding LogoutCommand}" 
-                                        CommandParameter="{Binding ElementName=homeWindow}"
+                                        CommandParameter="{Binding ElementName=mainWindow}"
                                         Cursor="Hand">
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <materialDesign:PackIcon Kind="Logout" Width="25" Height="auto"></materialDesign:PackIcon>
-                                    <TextBlock Margin="5 0 5 -4" VerticalAlignment="Center">Đăng xuất</TextBlock>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-                    </materialDesign:PopupBox>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <materialDesign:PackIcon Kind="Logout" Width="25" Height="auto"></materialDesign:PackIcon>
+                                        <TextBlock Margin="5 0 5 -4" VerticalAlignment="Center">Đăng xuất</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
                 </Grid>
                 
             </Grid>
@@ -125,7 +143,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <TextBlock Width="230"
+                    <TextBlock Width="auto"
                                Text="Tên tài khoản:"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
@@ -135,11 +153,14 @@
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    
-                    <TextBox Width="250"
-                             Height="50"
+
+                    <TextBlock Width="auto"
+                             Height="35"
                              VerticalAlignment="Bottom"
-                             FontSize="35"/>
+                             HorizontalAlignment="Left"
+                             FontSize="25"
+                             IsEnabled="False"
+                             Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"/>
                     
                 </Grid>
                 
@@ -156,7 +177,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <TextBlock Width="230"
+                    <TextBlock Width="130"
                                Text="Họ tên:"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
@@ -167,10 +188,13 @@
 
                 <Grid Grid.Column="1">
 
-                    <TextBox Width="250"
-                             Height="50"
+                    <TextBlock Width="auto"
+                             Height="40"
                              VerticalAlignment="Bottom"
-                             FontSize="35"/>
+                             HorizontalAlignment="Left"
+                             FontSize="25"
+                             IsEnabled="False"
+                             Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
 
                 </Grid>
 
@@ -187,7 +211,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <TextBlock Width="230"
+                    <TextBlock Width="150"
                                Text="Chức vụ:"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
@@ -198,10 +222,13 @@
 
                 <Grid Grid.Column="1">
 
-                    <TextBox Width="250"
-                             Height="50"
+                    <TextBlock Width="auto"
+                             Height="35"
                              VerticalAlignment="Bottom"
-                             FontSize="35"/>
+                             HorizontalAlignment="Left"
+                             FontSize="25"
+                             IsEnabled="False"
+                             Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"/>
 
                 </Grid>
 

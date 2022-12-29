@@ -10,13 +10,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="590" d:DesignWidth="1200"
              d:Background="Transparent">
-    <Grid Background="White">
-        <StackPanel
-        Orientation="Vertical">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#f5c1c1" Offset="0.2"/>
+                    <GradientStop Color="#e7cfcf" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            
             <Grid>
-                <Border
-                Background="{DynamicResource MaterialDesignBackground}">
-                    <GroupBox Header="Tiếp nhận khách hàng" Style="{StaticResource MaterialDesignGroupBox}" Margin="16" UseLayoutRounding="True">
+                <Border>
+                    <GroupBox Background="White" Header="Tiếp nhận khách hàng" Style="{StaticResource MaterialDesignGroupBox}" Margin="16" UseLayoutRounding="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -102,7 +108,7 @@
 
             </Grid>
             <Grid>
-                <GroupBox
+                <GroupBox Background="White"
                     Header="Danh sách xe sửa"
                     Style="{StaticResource MaterialDesignGroupBox}"
                     Margin="16"

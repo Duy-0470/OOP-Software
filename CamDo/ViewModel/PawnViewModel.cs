@@ -129,7 +129,9 @@ namespace CamDo.ViewModel
             Refresh();
 
             BillID = DataProvider.Ins.DB.HOADON.OrderByDescending(x => x.MaHoaDon).Select(x => x.MaHoaDon).FirstOrDefault() + 1;
-            
+
+            //CustomerName = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == CustomerID).Select(x => x.TenKhachHang).ToString();
+
             AddCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(PawnName) || string.IsNullOrEmpty(PriceInput.ToString()) || string.IsNullOrEmpty(Amount) || string.IsNullOrEmpty(CustomerName) || string.IsNullOrEmpty(CustomerID) || string.IsNullOrEmpty(InputDate.ToString()))
@@ -151,7 +153,7 @@ namespace CamDo.ViewModel
                 addPawn.TienChuoc = PriceOutput;
                 addPawn.SoLuong = Convert.ToInt32(Amount);
                 addPawn.ThanhTien = addPawn.TienChuoc * addPawn.SoLuong;
-                addPawn.CMND = ID;
+                //addPawn.CMND = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == CustomerID).Select(x => x.CMND).ToString();
                 addPawn.TenKhachHang = CustomerName;
                 addPawn.HanChot = (DateTime)inputDate;
                 InputList.Add(addPawn);
@@ -163,9 +165,7 @@ namespace CamDo.ViewModel
 
             EditCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null)
-                    return false;
-                if (CheckValidNumber() == false)
+                if (InputList.Count == 0)
                     return false;
                 return true;
             }, (p) =>
@@ -181,7 +181,6 @@ namespace CamDo.ViewModel
                         item.TenKhachHang = CustomerName;
                         item.TienCam = Convert.ToDecimal(PriceInput);
                         item.SoLuong = Convert.ToInt32(Amount);
-                        item.ThanhTien = item.TienCam * item.SoLuong;
                         SelectedItem = item;
                         break;
                     }
@@ -276,9 +275,12 @@ namespace CamDo.ViewModel
 
             RefreshCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                InputDate = DateTime.Now;
                 InputList = new ObservableCollection<AddPawn>();
                 TotalMoney = 0;
+                InputDate = null;
+                PawnName = Amount = CustomerID = " ";
+                PriceInput = 0;
+
             });
         }
 
@@ -310,7 +312,6 @@ namespace CamDo.ViewModel
         }
         private void Refresh()
         {
-            InputDate = DateTime.Now;
             InputList = new ObservableCollection<AddPawn>();
         }
 

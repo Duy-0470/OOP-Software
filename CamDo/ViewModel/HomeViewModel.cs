@@ -16,10 +16,28 @@ namespace CamDo.ViewModel
     public class HomeViewModel : BaseViewModel
     {
         public static TAIKHOAN User;
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; OnPropertyChanged(); }
+        }
+        private string role;
+        public string Role
+        {
+            get { return role; }
+            set { role = value; OnPropertyChanged(); }
+        }
+        private string userName;
+        public string UserName
+        {
+            get { return userName; }
+            set { userName = value; OnPropertyChanged(); }
+        }
 
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand SelectViewCommand { get; set; }
-        public ICommand OpenAccountInfoCommand { get; set; }
+        public ICommand EditAccountInfoCommand { get; set; }
         public ICommand LogoutCommand { get; set; }
         public ICommand CreateAccountCommand { get; set; }
         private Visibility updateVisibility;
@@ -35,9 +53,11 @@ namespace CamDo.ViewModel
 
         public HomeViewModel()
         {
+            LoadInformation();
+
             LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                if (User.MaVaiTro == 0)
+                if (MainViewModel.User.MaVaiTro == 0)
                 {
                     UpdateVisibility = Visibility.Hidden;
                 }
@@ -71,24 +91,24 @@ namespace CamDo.ViewModel
                 #endregion
             });
 
-            OpenAccountInfoCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            EditAccountInfoCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                //AccountInformation accountInformation = new AccountInformation();
-                //accountInformation.ShowDialog();
+                EditAccountWindow editAccountWindow = new EditAccountWindow();
+                editAccountWindow.ShowDialog();
             });
 
-            //LogoutCommand = new RelayCommand<Window>
-            //(
-            //    (p) => { return true; },
-            //    (p) =>
-            //    {
-            //        MainViewModel.User = null;
-            //        LoginWindow loginWindow = new LoginWindow();
-            //        Application.Current.MainWindow = loginWindow;
-            //        Application.Current.MainWindow.Show();
-            //        p.Close();
-            //    }
-            //);
+            LogoutCommand = new RelayCommand<Window>
+            (
+                (p) => { return true; },
+                (p) =>
+                {
+                    MainViewModel.User = null;
+                    LoginWindow loginWindow = new LoginWindow();
+                    Application.Current.MainWindow = loginWindow;
+                    Application.Current.MainWindow.Show();
+                    p.Close();
+                }
+            );
 
             CreateAccountCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
@@ -96,9 +116,20 @@ namespace CamDo.ViewModel
                 createAccountWindow.ShowDialog();
             });
 
+            
+
         }
 
-       
+        private void LoadInformation()
+        {
+            Name = MainViewModel.User.TenNhanVien.Trim();
+            UserName = MainViewModel.User.TenTaiKhoan.Trim();
+            if (MainViewModel.User.MaVaiTro == 1)
+            {
+                Role = "Admin";
+            }
+            else Role = "Staff";
+        }
 
     }
 }

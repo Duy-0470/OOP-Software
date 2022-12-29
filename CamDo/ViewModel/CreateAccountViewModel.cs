@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace CamDo.Model
 {
-    public class CreateAccountViewModel: BaseViewModel
+    public class CreateAccountViewModel : BaseViewModel
     {
         private string userName;
         public string UserName
@@ -49,7 +49,6 @@ namespace CamDo.Model
                 MessageBox.Show("Tạo tài khoản thành công!");
             });
 
-            //ShowAccountListCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ShowAccountListWindow showAccountListWindow = new ShowAccountListWindow(); showAccountListWindow.Show(); });
 
         }
 

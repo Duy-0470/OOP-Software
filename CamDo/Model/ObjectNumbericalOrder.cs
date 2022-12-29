@@ -9,7 +9,12 @@ namespace CamDo.Model
 {
     public class ObjectNumbericalOrder: BaseViewModel
     {
-        public int Number { get; set; }
+        private int number;
+        public int Number
+        {
+            get { return number; }
+            set { number = value; OnPropertyChanged(); }
+        }
         public CT_HOADON CT_HOADON { get; set;}
 
         public string TenKH { get; set; }
