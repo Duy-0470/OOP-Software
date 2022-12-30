@@ -57,6 +57,7 @@
                                          materialDesign:HintAssist.Hint="CMND"
                                          Text ="{Binding CMND, UpdateSourceTrigger=PropertyChanged}"
                                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         PreviewTextInput="NumberValidationTextBox"
                                          VerticalAlignment="Center"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="1">
@@ -109,7 +110,7 @@
             </Grid>
             <Grid>
                 <GroupBox Background="White"
-                    Header="Danh sách xe sửa"
+                    Header="Danh sách khách hàng"
                     Style="{StaticResource MaterialDesignGroupBox}"
                     Margin="16"
                     UseLayoutRounding="True">

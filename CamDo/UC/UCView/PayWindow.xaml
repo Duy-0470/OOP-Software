@@ -65,14 +65,15 @@
                                 Width="100"   
                                 Margin="5 5 15 5"
                                 Text="{Binding InputedItem, UpdateSourceTrigger=PropertyChanged}"
-                              />
+                              PreviewTextInput="NumberValidationTextBox"/>
                     <DatePicker Width="100" materialDesign:HintAssist.Hint="Ngày lập" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding SelectedDate, StringFormat='dd/MM/yyyy'}"/>
-                    <TextBox Width="auto" Text="{Binding TotalMoney, StringFormat='#,0'}" IsReadOnly="True" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tiền thu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <Button x:Name="btnSearch" Grid.Row="2"
                             Content="Tìm kiếm"
                             FontSize="15" 
                             Height="30"
                             Width="100"
+                            Margin="30,0,0,0"
+                            
                             Command="{Binding ShowDataCommand}"
                             CommandParameter="{Binding ElementName=btnSearch}">
                     </Button>

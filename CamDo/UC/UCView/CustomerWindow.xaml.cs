@@ -38,5 +38,10 @@ namespace CamDo.UC.UCView
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+
+        }
     }
 }

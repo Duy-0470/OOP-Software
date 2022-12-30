@@ -57,7 +57,7 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Height="50">
                     <TextBox
-                        materialDesign:HintAssist.Hint="Ten dang nhap"
+                        materialDesign:HintAssist.Hint="Username"
                         Text="{Binding Username}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </Grid>

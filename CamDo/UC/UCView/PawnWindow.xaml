@@ -83,6 +83,7 @@
                                          materialDesign:HintAssist.Hint="Số lượng"
                                          Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         PreviewTextInput="NumberValidationTextBox"
                                          VerticalAlignment="Center" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="3">
@@ -90,6 +91,7 @@
                                          materialDesign:HintAssist.Hint="Giá tiền cầm"
                                          Text="{Binding PriceInput, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         PreviewTextInput="NumberValidationTextBox"
                                          VerticalAlignment="Center" />
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="3">
@@ -97,7 +99,8 @@
                                          materialDesign:HintAssist.Hint="Giá tiền chuộc"
                                          Text="{Binding PriceOutput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                         VerticalAlignment="Center" />
+                                         VerticalAlignment="Center"
+                                         IsEnabled="False"/>
                             </Grid>
                         </Grid>
                     </GroupBox>

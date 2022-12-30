@@ -17,7 +17,7 @@
                                    CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
     <Grid>
 
         <Grid.Background>
@@ -26,79 +26,65 @@
                 <GradientStop Color="#e7cfcf" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <!--GRID BÊN TRÁI-->
-        
-        <Grid Grid.Column="0"
-              Margin="30">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0"
+                    VerticalAlignment="Center">
+            <Grid>
 
-            <!--GRID CHỨA TÊN CỬA HÀNG-->
-            
-            <Grid Grid.Row="0"
-                  Margin="30">
-                
-                <StackPanel VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            Height="90">
-                    <TextBlock 
-                               Text="Tiệm cầm đồ"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               FontSize="30"/>
-                    <TextBlock Text="Rose"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               FontSize="30"/>
-                </StackPanel>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBlock Text="Rose's"
+                                   FontSize="50"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <TextBlock Text="Pawn shop"
+                                   FontSize="50"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      Height="330">
+
+                    <Image Source="pack://application:,,,/Picture/Rose.png"
+                           Margin="30,50,30,30"
+                           Width="300"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                </Grid>
             </Grid>
+        </StackPanel>
 
-            <!--GRID CHỨA ẢNH-->
-            
-            <Grid Grid.Row="1"
-                  Margin="30">
+        <StackPanel Grid.Column="1"
+                    >
 
-                <Image Source="pack://application:,,,/Picture/Rose.png"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            </Grid>
-            
-        </Grid>
-
-        <!--GRID BÊN PHẢI-->
-
-        <Grid Grid.Column="1"
-              Margin="15">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <!--GRID THU 1-->
-
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="1">
-
+                <Grid Grid.Row="0">
                     <StackPanel>
                         <materialDesign:PopupBox
                             HorizontalAlignment="Right" Margin="0,0,19.8,0"
                                                  PlacementMode="BottomAndAlignCentres">
                             <materialDesign:PopupBox.ToggleContent>
-                                <materialDesign:PackIcon Kind="ArrowDownDropCircleOutline" Width="100" Height="50"
+                                <materialDesign:PackIcon Kind="ArrowDownDropCircleOutline" Width="90" Height="90"
                                                          Foreground="White" FontWeight="ExtraLight"></materialDesign:PackIcon>
 
                             </materialDesign:PopupBox.ToggleContent>
@@ -131,171 +117,42 @@
                         </materialDesign:PopupBox>
                     </StackPanel>
                 </Grid>
-                
-            </Grid>
-            
-            <Grid Grid.Row="1"
-                  Margin="20">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="1"
+                      Height="495"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
 
-                <Grid Grid.Column="0">
-                    <TextBlock Width="auto"
-                               Text="Tên tài khoản:"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Bottom"
-                               FontSize="35"
-                               Margin="0,0,10,0">
-                    </TextBlock>
+                    <StackPanel VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Welcome"
+                                           FontSize="60"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"
+                                           FontSize="60"
+                                           Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid VerticalAlignment="Center"
+                              HorizontalAlignment="Center">
+                            <TextBlock Text="back online"
+                                       FontSize="60">
+                            </TextBlock>
+                        </Grid>
+                    </StackPanel>
                 </Grid>
-
-                <Grid Grid.Column="1">
-
-                    <TextBlock Width="auto"
-                             Height="35"
-                             VerticalAlignment="Bottom"
-                             HorizontalAlignment="Left"
-                             FontSize="25"
-                             IsEnabled="False"
-                             Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"/>
-                    
-                </Grid>
-                
-            </Grid>
-
-            <!--GRID THU 2-->
-
-            <Grid Grid.Row="2"
-                  Margin="20">
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0">
-                    <TextBlock Width="130"
-                               Text="Họ tên:"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Bottom"
-                               FontSize="35"
-                               Margin="0,0,10,0">
-                    </TextBlock>
-                </Grid>
-
-                <Grid Grid.Column="1">
-
-                    <TextBlock Width="auto"
-                             Height="40"
-                             VerticalAlignment="Bottom"
-                             HorizontalAlignment="Left"
-                             FontSize="25"
-                             IsEnabled="False"
-                             Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
-
-                </Grid>
-
             </Grid>
 
-            <!--GRID THU 3-->
-
-            <Grid Grid.Row="3"
-                  Margin="20">
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0">
-                    <TextBlock Width="150"
-                               Text="Chức vụ:"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Bottom"
-                               FontSize="35"
-                               Margin="0,0,10,0">
-                    </TextBlock>
-                </Grid>
-
-                <Grid Grid.Column="1">
-
-                    <TextBlock Width="auto"
-                             Height="35"
-                             VerticalAlignment="Bottom"
-                             HorizontalAlignment="Left"
-                             FontSize="25"
-                             IsEnabled="False"
-                             Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"/>
-
-                </Grid>
-
-            </Grid>
-
-            
-            
-            <!--GRID THU 4-->
-            
-            <!--<Grid Grid.Row="4"
-                  Margin="10">
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                -->
-            <!--GRID CAP NHAT--><!--
-
-                <Grid Grid.Column="0"
-                      Margin="10"
-                      Width="200"
-                      Height="70"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center">
-
-                    <Button Content="Cập nhật"
-                                        Foreground="Black"
-                                        Height="80">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                                <GradientStop Color="#e7cfcf" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-
-                    </Button>
-
-                </Grid>
-
-                --><!--GRID DANG XUAT--><!--
-
-                <Grid Grid.Column="1"
-                      Margin="10"
-                      Width="200"
-                      Height="70"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center">
-
-                    <Button Content="Đăng xuất"
-                                        Foreground="Black"
-                                        Height="80">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#f5c1c1" Offset="0.2"/>
-                                <GradientStop Color="#e7cfcf" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-
-                    </Button>
-
-                </Grid>
-
-            </Grid>-->
-
-        </Grid>
+        </StackPanel>
 
     </Grid>
 </UserControl>

@@ -101,6 +101,20 @@ namespace CamDo.ViewModel
             , (p) =>
             {
                 Refresh();
+                int IDBilltemp =  Convert.ToInt32(DataProvider.Ins.DB.HOADON.OrderByDescending(x => x.MaHoaDon).FirstOrDefault().ToString());
+
+                int BillIDTemp = Convert.ToInt32(DataProvider.Ins.DB.HOADON.Where(x => x.MaHoaDon.ToString() == InputedItem).Select(x => x.MaHoaDon).FirstOrDefault().ToString());
+
+                if (BillIDTemp > IDBilltemp)
+                {
+                    MessageBox.Show("Không có mã hóa đơn này");
+                    return;
+                }
+                if (BillIDTemp <= 0)
+                {
+                    MessageBox.Show("Nhập chính xác mã hóa đơn");
+                    return;
+                }
 
                 var temp = DataProvider.Ins.DB.CT_HOADON.FirstOrDefault(x => x.MaHoaDon.ToString() == InputedItem);
                 if (SelectedDate > temp.HanChot)
@@ -240,6 +254,7 @@ namespace CamDo.ViewModel
                     detailitem.MaThuTien = thutien.MaThuTien;
                     detailitem.THUTIEN = thutien;
                     thutien.SoTienThu += detailitem.ThanhTien;
+                    item.CT_HOADON.TrangThai = "Chuoc";
                     detaillist.Add(detailitem);
                 }
 
@@ -248,8 +263,6 @@ namespace CamDo.ViewModel
 
                 foreach( var item in ContentList)
                 {
-                    var idtemp = DataProvider.Ins.DB.CT_HOADON.Where(x => x.MaHoaDon.ToString() == InputedItem).FirstOrDefault();
-                    idtemp.TrangThai = "Chuoc";
                 }
 
                 DataProvider.Ins.DB.SaveChanges();

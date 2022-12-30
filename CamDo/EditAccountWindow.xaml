@@ -64,7 +64,7 @@
 
                     <Grid Grid.Column="1">
                         <TextBox FontSize="20"
-                                 Text="Nguyen Duy Hao"
+                                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Left"
                                  IsEnabled="{Binding EnableState}"/>
