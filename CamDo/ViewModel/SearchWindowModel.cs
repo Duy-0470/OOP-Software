@@ -25,14 +25,40 @@ namespace CamDo.ViewModel
             }
         }
 
-        private string tenKHtemp;
-        public string TenKHtemp
+        private string tenKH;
+        public string TenKH
         {
-            get { return tenKHtemp; }
-            set { tenKHtemp = value; OnPropertyChanged(); }
+            get { return tenKH; }
+            set { tenKH = value; OnPropertyChanged(); }
         }
 
-        public string tenKH;
+        private string customerID;
+        public string CustomerID
+        {
+            get { return customerID; }
+            set { customerID = value; OnPropertyChanged(); }
+        }
+
+        private string billID;
+        public string BillID
+        {
+            get { return billID; }
+            set { billID = value; OnPropertyChanged(); }
+        }
+
+        private string pawnName;
+        public string PawnName
+        {
+            get { return pawnName; }
+            set { pawnName = value; OnPropertyChanged(); }
+        }
+
+        private string cMND;
+        public string CMND
+        {
+            get { return cMND; }
+            set { cMND = value; OnPropertyChanged(); }
+        }
 
         private string inputedItem;
         public string InputedItem
@@ -56,9 +82,9 @@ namespace CamDo.ViewModel
             this.Option = new List<string>() { "Tên hàng hóa", "Mã hóa đơn", "Tên khách hàng","CMND" };
             SearchCommand = new RelayCommand<object>((p) =>
             {
-                if (Check() == true || String.IsNullOrEmpty(InputedItem))
-                    return true;
-                else return false;
+                if (/*string.IsNullOrEmpty(InputedItem) ||*/ string.IsNullOrEmpty(SelectedItem))
+                    return false;
+                else return true;
             }
             , (p) =>
             {
@@ -90,7 +116,7 @@ namespace CamDo.ViewModel
                     ObjectNumbericalOrder objectNumbericalOrder = new ObjectNumbericalOrder();
                     objectNumbericalOrder.Number = i + 1;
                     objectNumbericalOrder.CT_HOADON = list[i];
-                    objectNumbericalOrder.TenKH = tenKH;
+                    objectNumbericalOrder.CustomerName = TenKH;
                     objectNumbericalOrder.CT_HOADON.TongTien = objectNumbericalOrder.CT_HOADON.SoLuong * objectNumbericalOrder.CT_HOADON.GiaChuoc;
                     CTHoaDonList.Add(objectNumbericalOrder);
                 }
@@ -98,21 +124,22 @@ namespace CamDo.ViewModel
             );
         }
 
-        private bool Check()
-        {
-            if (SelectedItem == "Tiền nợ")
-                return Decimal.TryParse(InputedItem, out _);
-            return true;
-        }
         private List<CT_HOADON> SearchByObjectName()
         {
             List<CT_HOADON> result = DataProvider.Ins.DB.CT_HOADON.Where(x => x.TenVatTu.Contains(InputedItem) ).ToList();
+            BillID = DataProvider.Ins.DB.CT_HOADON.Where(x => x.TenVatTu.Contains(InputedItem)).Select(x => x.MaHoaDon).FirstOrDefault().ToString();
+            CustomerID = DataProvider.Ins.DB.HOADON.Where(x => x.MaHoaDon.ToString() == BillID).Select(x => x.MaKhachHang).FirstOrDefault().ToString();
+            TenKH = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == CustomerID).Select(x => x.TenKhachHang).FirstOrDefault();
             return result;
 
         }
         private List<CT_HOADON> SeachByBill()
         {
             List<CT_HOADON> result = DataProvider.Ins.DB.CT_HOADON.Where(x => x.MaHoaDon.ToString() == InputedItem).ToList();
+
+            BillID = DataProvider.Ins.DB.CT_HOADON.Where(x => x.MaHoaDon.ToString().Contains(InputedItem)).Select(x => x.MaHoaDon).FirstOrDefault().ToString();
+            CustomerID = DataProvider.Ins.DB.HOADON.Where(x => x.MaHoaDon.ToString() == BillID).Select(x => x.MaKhachHang).FirstOrDefault().ToString();
+            TenKH = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == CustomerID).Select(x => x.TenKhachHang).FirstOrDefault();
             return result;
 
         }
@@ -142,6 +169,8 @@ namespace CamDo.ViewModel
         {
             List<CT_HOADON> result = new List<CT_HOADON>();
 
+            CMND = DataProvider.Ins.DB.KHACHHANG.Where(x => x.CMND.Contains(InputedItem.ToString())).Select(x => x.CMND).FirstOrDefault().ToString();
+            TenKH = DataProvider.Ins.DB.KHACHHANG.Where(x => x.CMND == CMND).Select(x => x.TenKhachHang).FirstOrDefault();
             List<KHACHHANG> kH = DataProvider.Ins.DB.KHACHHANG.Where(x => x.CMND.Contains(InputedItem)).ToList();
             if (kH.Count > 0)
             {

@@ -40,7 +40,8 @@ CREATE TABLE CT_HOADON(
 	GiaCam INT,
 	GiaChuoc INT,
 	HanChot SMALLDATETIME,
-	TongTien INT
+	TongTien INT,
+	TrangThai Nvarchar(20)
 
 	FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon)
 )
@@ -104,10 +105,10 @@ INSERT INTO HOADON (MaKhachHang,Ngay) VALUES ('DMT','1/12/2022')
 INSERT INTO HOADON (MaKhachHang,Ngay) VALUES ('CDQ','3/12/2022')
 INSERT INTO HOADON (MaKhachHang,Ngay) VALUES ('CVS','4/12/2022')
 
-INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc) VALUES (1, N'Xe may', 1, '50000000','60000000')
-INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc) VALUES (2, N'Laptop', 1, '25000000','30000000')
-INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc) VALUES (2, N'Dien thoai', 1, '10000000','11000000')
-INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc) VALUES (3, N'Dong ho', 1, '5000000','6000000')
-INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc) VALUES (3, N'Day chuyen', 1, '3000000','4000000')
-INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc) VALUES (3, N'May tinh bang', 1, '20000000','21000000')
+INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc,TongTien,TrangThai) VALUES (1, N'Xe may', 1, '50000000','52500000','52500000','Cam')
+INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc,TongTien,TrangThai) VALUES (2, N'Laptop', 1, '25000000','26250000','26250000','Cam')
+INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc,TongTien,TrangThai) VALUES (2, N'Dien thoai', 1, '10000000','10500000','10500000','Cam')
+INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc,TongTien,TrangThai) VALUES (3, N'Dong ho', 1, '5000000','5250000','5250000','Cam')
+INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc,TongTien,TrangThai) VALUES (3, N'Day chuyen', 1, '3000000','3150000','3150000','Cam')
+INSERT INTO CT_HOADON (MaHoaDon, TenVatTu, SoLuong, GiaCam, GiaChuoc,TongTien,TrangThai) VALUES (3, N'May tinh bang', 1, '20000000','21000000','21000000','Cam')
 

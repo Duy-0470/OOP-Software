@@ -48,9 +48,9 @@
                                 Foreground="Black"
                                 materialDesign:HintAssist.Hint="Mã khách hàng"
                                     IsEnabled="{Binding EditTextboxEnable}"
-                                    Text="{Binding CustomerID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Text="{Binding CustomerID, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                VerticalAlignment="Center" />
+                                VerticalAlignment="Center" LostFocus="TextBox_LostFocus" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
                                 <TextBox Width="170" materialDesign:HintAssist.Hint="Tên khách hàng"
@@ -58,6 +58,7 @@
                                          Foreground="Black"
                                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                          VerticalAlignment="Center"
+                                         IsEnabled="False"
                                          />
 
                             </Grid>
@@ -149,7 +150,6 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Number}"></GridViewColumn>
-                                    <GridViewColumn Header="Mã HĐ" DisplayMemberBinding="{Binding MaHoaDon}"></GridViewColumn>
                                     <GridViewColumn Header="Mã KH" DisplayMemberBinding="{Binding MaKhachHang}"></GridViewColumn>
                                     <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding TenKhachHang}"></GridViewColumn>
                                     <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding CMND}"></GridViewColumn>

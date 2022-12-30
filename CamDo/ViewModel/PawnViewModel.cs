@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.Pkcs;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,8 @@ namespace CamDo.ViewModel
         public string CustomerName
         {
             get { return customerName; }
-            set { customerName = value; OnPropertyChanged(nameof(CustomerName)); }
+            set { customerName = value;
+                 OnPropertyChanged(nameof(CustomerName)); }
         }
 
         private string iD;
@@ -50,6 +52,10 @@ namespace CamDo.ViewModel
         {
             get { return customerID; }
             set { customerID = value;
+                CustomerName = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == customerID).Select(x => x.TenKhachHang).FirstOrDefault();
+                if (CustomerName == null)
+                    MessageBox.Show("Không tồn tại khách hàng đó");
+                ID = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == customerID).Select(x => x.CMND).FirstOrDefault();
                 OnPropertyChanged(nameof(CustomerID)); }
         }
 
@@ -74,6 +80,13 @@ namespace CamDo.ViewModel
         {
             get { return amount; }
             set { amount = value; OnPropertyChanged(nameof(Amount)); }
+        }
+
+        private string state;
+        public string State
+        {
+            get { return state; }
+            set { state = value; OnPropertyChanged(nameof(State)); }
         }
 
         private decimal totalMoney;
@@ -108,6 +121,7 @@ namespace CamDo.ViewModel
                     inputDate = SelectedItem.HanChot;
                     billID = SelectedItem.MaHoaDon;
                     customerID = SelectedItem.MaKhachHang;
+                    State = "Cam";
                 }
             }
         }
@@ -130,8 +144,6 @@ namespace CamDo.ViewModel
 
             BillID = DataProvider.Ins.DB.HOADON.OrderByDescending(x => x.MaHoaDon).Select(x => x.MaHoaDon).FirstOrDefault() + 1;
 
-            //CustomerName = DataProvider.Ins.DB.KHACHHANG.Where(x => x.MaKhachHang == CustomerID).Select(x => x.TenKhachHang).ToString();
-
             AddCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(PawnName) || string.IsNullOrEmpty(PriceInput.ToString()) || string.IsNullOrEmpty(Amount) || string.IsNullOrEmpty(CustomerName) || string.IsNullOrEmpty(CustomerID) || string.IsNullOrEmpty(InputDate.ToString()))
@@ -149,12 +161,15 @@ namespace CamDo.ViewModel
                 addPawn.TenVatTu = PawnName.Trim();
                 addPawn.MaHoaDon = BillID;
                 addPawn.MaKhachHang = CustomerID;
+                addPawn.CMND = ID;
+                
                 addPawn.TienCam = PriceInput;
                 addPawn.TienChuoc = PriceOutput;
                 addPawn.SoLuong = Convert.ToInt32(Amount);
                 addPawn.ThanhTien = addPawn.TienChuoc * addPawn.SoLuong;
                 addPawn.TenKhachHang = CustomerName;
                 addPawn.HanChot = (DateTime)inputDate;
+                
                 InputList.Add(addPawn);
                 PawnName = Amount = "";
                 PriceInput = 0;
@@ -174,7 +189,6 @@ namespace CamDo.ViewModel
                     if (item == SelectedItem)
                     {
                         item.TenVatTu = PawnName;
-                        item.CMND = ID;
                         item.HanChot = (DateTime)inputDate;
                         item.MaKhachHang = CustomerID;
                         item.TenKhachHang = CustomerName;
@@ -260,7 +274,8 @@ namespace CamDo.ViewModel
                         GiaChuoc = (int?)item.TienChuoc,
                         TenVatTu = item.TenVatTu,
                         HanChot = item.HanChot,
-                        TongTien = (int?)item.ThanhTien
+                        TongTien = (int?)item.ThanhTien,
+                        TrangThai = "Cam"
                         
                         };
                         detailList.Add(ct_hoadon);

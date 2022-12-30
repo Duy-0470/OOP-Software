@@ -100,6 +100,8 @@ namespace CamDo.ViewModel
             }
             , (p) =>
             {
+                Refresh();
+
                 var temp = DataProvider.Ins.DB.CT_HOADON.FirstOrDefault(x => x.MaHoaDon.ToString() == InputedItem);
                 if (SelectedDate > temp.HanChot)
                 {
@@ -135,6 +137,12 @@ namespace CamDo.ViewModel
                 if ( CTHoaDonList.Count() == 0)
                 {
                     MessageBox.Show("Không có vật tư bạn cần thanh toán");
+                }
+
+                if(SelectedItem.CT_HOADON.TrangThai == "Chuoc")
+                {
+                    MessageBox.Show("Đồ đã được chuộc");
+                    return;
                 }
 
                 ContentList.Add(SelectedItem);
@@ -237,6 +245,17 @@ namespace CamDo.ViewModel
 
                 DataProvider.Ins.DB.CT_THUTIEN.AddRange(detaillist);
                 DataProvider.Ins.DB.SaveChanges();
+
+                foreach( var item in ContentList)
+                {
+                    var idtemp = DataProvider.Ins.DB.CT_HOADON.Where(x => x.MaHoaDon.ToString() == InputedItem).FirstOrDefault();
+                    idtemp.TrangThai = "Chuoc";
+                }
+
+                DataProvider.Ins.DB.SaveChanges();
+
+                Refresh();
+
                 MessageBox.Show("Thu tiền thành công");
 
             });

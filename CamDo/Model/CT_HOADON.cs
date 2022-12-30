@@ -22,6 +22,7 @@ namespace CamDo.Model
         public Nullable<int> GiaChuoc { get; set; }
         public Nullable<System.DateTime> HanChot { get; set; }
         public Nullable<int> TongTien { get; set; }
+        public string TrangThai { get; set; }
     
         public virtual HOADON HOADON { get; set; }
     }

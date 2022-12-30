@@ -17,7 +17,7 @@ namespace CamDo.Model
         }
         public CT_HOADON CT_HOADON { get; set;}
 
-        public string TenKH { get; set; }
+        public string CustomerName { get; set; }
         public string CMND { get; set; }
         public string AmountTemp { get; set; }
     }

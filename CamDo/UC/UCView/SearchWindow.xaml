@@ -71,11 +71,12 @@
                         <GridView>
                             <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Number}"/>
                             <GridViewColumn Header="Mã hóa đơn" DisplayMemberBinding ="{Binding CT_HOADON.MaHoaDon}"/>
-                            <GridViewColumn Header="Khách hàng" DisplayMemberBinding="{Binding TenKH}"/>
+                            <GridViewColumn Header="Khách hàng" DisplayMemberBinding="{Binding CustomerName}"/>
                             <GridViewColumn Header="Tên món hàng" DisplayMemberBinding ="{Binding CT_HOADON.TenVatTu}"/>
                             <GridViewColumn Header="Tiền cầm" DisplayMemberBinding="{Binding CT_HOADON.GiaCam}"/>
                             <GridViewColumn Header="Tiền chuộc" DisplayMemberBinding="{Binding CT_HOADON.GiaChuoc}"/>
                             <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding CT_HOADON.SoLuong}"/>
+                            <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding CT_HOADON.TrangThai}"/>
                             <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding CT_HOADON.TongTien}"/>
                         </GridView>
                     </ListView.View>

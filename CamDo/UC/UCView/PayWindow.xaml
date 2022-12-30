@@ -95,6 +95,7 @@
                                         <GridViewColumn Header="Tên vật tư" DisplayMemberBinding ="{Binding CT_HOADON.TenVatTu}"/>
                                         <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding CT_HOADON.SoLuong}"/>
                                         <GridViewColumn Header="Tiền chuộc" DisplayMemberBinding="{Binding CT_HOADON.GiaChuoc}"/>
+                                        <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding CT_HOADON.TrangThai}"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
