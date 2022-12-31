@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f025420c06b04c209595f421b9527c2a" Name="Diagram1" ZoomLevel="109">
-        <EntityTypeShape EntityType="CAMDOModel.BAOCAODOANHSO" Width="1.5" PointX="9.625" PointY="1.875" />
-        <EntityTypeShape EntityType="CAMDOModel.CT_BCDS" Width="1.5" PointX="11.875" PointY="1.75" />
+        <EntityTypeShape EntityType="CAMDOModel.BAOCAODOANHSO" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="CAMDOModel.CT_BCDS" Width="1.5" PointX="3" PointY="8.875" />
         <EntityTypeShape EntityType="CAMDOModel.CT_HOADON" Width="1.5" PointX="5.25" PointY="4.25" />
         <EntityTypeShape EntityType="CAMDOModel.CT_THUTIEN" Width="1.5" PointX="7.5" PointY="1.125" />
         <EntityTypeShape EntityType="CAMDOModel.HOADON" Width="1.5" PointX="3" PointY="3.125" />
